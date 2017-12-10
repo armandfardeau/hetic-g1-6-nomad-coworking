@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
-  before_action :set_room, only: [:show, :edit, :update]
-  before_action :require_same_user, only: [:edit, :update]
+  before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @rooms = current_user.rooms
@@ -34,6 +34,11 @@ class RoomsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @room.destroy
+    redirect_to rooms_path, notice: 'Your ad has been deleted'
   end
 
   private

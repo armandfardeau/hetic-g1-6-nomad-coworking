@@ -1,9 +1,13 @@
-.btn-primary.btn {
+.btn.btn-primary {
   border: 1px solid $pink;
   border-radius: 2px;
   font-weight: bold;
   background-color: $pink;
   color: $white;
+  padding: 10px 25px 10px 25px;
+}
+
+.btn.btn-danger {
   padding: 10px 25px 10px 25px;
 }
 

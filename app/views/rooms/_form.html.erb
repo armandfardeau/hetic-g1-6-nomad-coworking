@@ -185,8 +185,19 @@
             </div>
           </div>
 
-          <div class='actions'>
+          <div class='actions text-center'>
             <%= f.submit 'Validate my ad', class: 'btn btn-primary' %>
+          </div>
+          <% if controller.action_name == 'edit' %>
+              <br/>
+              <hr/>
+              <br/>
+              <div class='actions text-center'>
+                <%= button_to 'delete ad', room_path(@room),
+                              data: {confirm: 'Are you sure?'},
+                              method: :delete,
+                              class: 'btn btn-danger' %>
+          <% end %>
           </div>
       <% end %>
     </div>
