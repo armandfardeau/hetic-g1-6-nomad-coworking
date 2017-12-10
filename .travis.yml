@@ -1,0 +1,20 @@
+language: ruby
+cache: bundler
+rvm:
+- 2.4.1
+sudo: false
+before_script:
+- bundle exec rake db:migrate
+- bundle exec rails s -d
+script:
+  - bundle exec rake test
+  - bundle exec rubocop
+deploy:
+  provider: heroku
+  api_key:
+    secure: NITTDw2XD9LdzZSLykexN0slUaJK9gLaB26CuVIMv9WufdiGKcA1f/S8VKLF7PBuikwoU3o6uACWEjqBkp0sisqteZ6E5TzZRSrjHFPpxGoXjfu3Gt+KseZlKKCqrML5xpJtE2KI7wFFUW4Np7X8karsOEnQwYfKvtX4H1DngJROrTMXlt0ui++0O8qdugeT14AfBzw7v0vv/e72KngDjtRmz1Mk0CaAlBITls1Ttze4JIJ/LvCsVIyX2z3SKAGNm+5Ly9pnSVA61p1QOST1LPD/vW2dtNonGVIBmEcJ2PtLAr2+VeBnTwBdT4zOGoTohqTAv6x40DLQLmIRnxzsghs8rLLnQps1JjOAO6soCDQ+awFb7NUhFxxzlYmAtch4o0P3Yt5lCeJPHI/8bROWghNcwEsa73WJernOzuC0Vqi8dAy4EHAvNZEzwJkjjz36YO+VwJE4tscMRabBzbkNdedPkv1Oxy0EeLpkrbg6CaTZbpy3y8+ttywQFt7PR8f/9HN4Ju33M+PXXlWDhDsp8JKl9s3ArsyE2dJIrjD93tiTZhJBWUluUEvQxztCjIfm5d2FNBmwi/AFoeJ0Hb0nCmXURtmkLbNXxBJr0TpuMQ6D8drOhiUjswkon9cAtnBYjPxvKY4sBdME32cbyBSpFps6fLBa9cSagaeFGH2Neak=
+  run:
+  - rake db:migrate
+  - rake db:seed
+  - restart
+  - rake cleanup

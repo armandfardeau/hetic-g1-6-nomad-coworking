@@ -1,0 +1,7 @@
+{
+  "name": "hetic-G1-Equipe-6-HeticBnB",
+  "private": true,
+  "dependencies": {
+    "travis": "^0.1.1"
+  }
+}
