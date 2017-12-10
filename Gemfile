@@ -13,6 +13,9 @@ gem 'jquery-rails'
 # use devise for authentication
 gem 'devise'
 
+# use paperclip for file upload
+gem 'paperclip'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 
