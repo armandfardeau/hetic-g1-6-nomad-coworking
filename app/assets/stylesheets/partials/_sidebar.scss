@@ -1,0 +1,27 @@
+.sidebar-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.sidebar-item {
+  padding: 10px 0;
+  font-size: 16px;
+  color: $grey-light;
+  border-bottom: 1px solid $grey-lighter;
+}
+
+.sidebar-link {
+  color: $grey-light;
+  text-decoration: none;
+}
+
+.sidebar-link:hover, .sidebar-link:focus {
+  color: $grey-pale;
+  text-decoration: none;
+}
+
+.active.sidebar-link {
+  color: $grey-dark;
+  font-weight: bold;
+  text-decoration: none;
+}
