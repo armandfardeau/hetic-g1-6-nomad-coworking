@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'users/show'
 
   devise_for :users,
+             controllers: {registrations: 'registrations'},
              path: '',
              path_names: {
                  sign_in: 'login',
