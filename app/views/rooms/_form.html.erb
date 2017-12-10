@@ -124,7 +124,8 @@
               <label>Address</label>
               <%= f.text_field :address,
                                placeholder: 'Where is your apartment located ?',
-                               class: 'form-control' %>
+                               class: 'form-control',
+                               id: 'search_address' %>
             </div>
           </div>
 
@@ -203,3 +204,9 @@
     </div>
   </div>
 </div>
+
+
+<script> function initSearch() {
+    var searchBox_home = new google.maps.places.SearchBox(document.getElementById('search_address'));
+}</script>
+<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAPS_API_KEY'] %>&libraries=places&callback=initSearch"></script>

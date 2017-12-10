@@ -23,6 +23,9 @@ gem 'toastr-rails'
 # use font-awesome for a fancy effect
 gem 'font-awesome-sass'
 
+# use geocoder for geo localisation with google maps
+gem 'geocoder'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 

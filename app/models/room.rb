@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
+  after_validation :geocode, if: :address_changed?
   belongs_to :user
   has_many :photos, dependent: :destroy
   validates :home_type, presence: true
@@ -10,4 +11,5 @@ class Room < ApplicationRecord
   validates :summary, presence: true, length: {maximum: 600}
   validates :address, presence: true
   validates :price, numericality: {only_integer: true, greater_than: 5}
+  geocoded_by :address
 end
