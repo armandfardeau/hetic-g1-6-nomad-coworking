@@ -8,9 +8,17 @@ body {
 
 .panel-default .panel-heading {
   color: $grey-dark;
-  background-color: $grey-lighter ;
+  background-color: $grey-lighter;
   font-size: 18px;
   font-weight: 400
+}
+
+.panel-heading.preview {
+  padding: 0;
+}
+
+.panel-heading.preview img {
+  width: 100%;
 }
 
 .row-space-1 {
