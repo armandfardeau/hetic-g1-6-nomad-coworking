@@ -17,12 +17,7 @@ class RoomsController < ApplicationController
   def create
     @room = current_user.rooms.build(room_params)
     if @room.save
-      if params[:photos]
-        params[:photos].each do |p|
-          @room.photos.create(photos: p)
-        end
-      end
-      @photos = @room.photos
+      save_image params[:images]
       redirect_to edit_room_path(@room), notice: 'Your ad has been successfully added'
     else
       render :new
@@ -34,13 +29,21 @@ class RoomsController < ApplicationController
 
   def update
     if @room.update(room_params)
-      redirect to @room, notice: 'Changes has been saved'
+      save_image params[:images]
+      redirect_to edit_room_path(@room), notice: 'Changes has been saved'
     else
       render :edit
     end
   end
 
   private
+
+  def save_image(param)
+    return unless param
+    param.each do |p|
+      @room.photos.create(image: p)
+    end
+  end
 
   def set_room
     @room = Room.find(params[:id])
