@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :set_room, only: [:show, :edit, :update]
+  before_action :require_same_user, only: [:edit, :update]
 
   def index
     @rooms = current_user.rooms
@@ -16,7 +17,13 @@ class RoomsController < ApplicationController
   def create
     @room = current_user.rooms.build(room_params)
     if @room.save
-      redirect_to @room, notice: 'Your ad has been successfully added'
+      if params[:images]
+        params[:images].each do |i|
+          @room.photos.create(image: i)
+        end
+      end
+      @photos = @room.photos
+      redirect_to edit_room_path(@room), notice: 'Your ad has been successfully added'
     else
       render :new
     end
@@ -59,5 +66,12 @@ class RoomsController < ApplicationController
         :price,
         :active
     )
+  end
+
+  def require_same_user
+    if current_user.id != @room.user_id
+      flash[:danger] = 'You are not allowed to edit this page'
+      redirect_to root_path
+    end
   end
 end
