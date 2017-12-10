@@ -15,6 +15,7 @@ gem 'devise'
 
 # use paperclip for file upload
 gem 'paperclip'
+gem 'paperclip-cloudinary'
 
 # use toastr for better user notification
 gem 'toastr-rails'
