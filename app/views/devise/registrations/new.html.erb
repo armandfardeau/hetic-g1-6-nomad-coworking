@@ -6,6 +6,11 @@
         <%= render 'shared/devise_errors' %>
 
         <div class='form-group'>
+          <%= f.label :fullname %><br/>
+          <%= f.text_field :fullname, autofocus: true, class: 'form-control', placeholder: 'Full name' %>
+        </div>
+
+        <div class='form-group'>
           <%= f.label :email %><br/>
           <%= f.email_field :email, autofocus: true, placeholder: 'Your email' %>
         </div>
