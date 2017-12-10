@@ -1,0 +1,25 @@
+.reservation-table td {
+  width: 100%;
+  border: 1px solid $grey-lighter;
+  padding: 10px;
+}
+
+.price_tag {
+  background-color: $grey-dark;
+  color: $white;
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.ui-datepicker {
+  background-color: $white;
+  border-bottom: $border;
+  border-left: $border;
+  border-right: $border;
+}
+
+.border {
+  border-bottom: $border;
+  border-left: $border;
+}

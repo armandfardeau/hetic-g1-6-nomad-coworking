@@ -1,6 +1,7 @@
 class Room < ApplicationRecord
   after_validation :geocode, if: :address_changed?
   belongs_to :user
+  has_many :reservations, dependent: :delete_all
   has_many :photos, dependent: :destroy
   validates :home_type, presence: true
   validates :room_type, presence: true

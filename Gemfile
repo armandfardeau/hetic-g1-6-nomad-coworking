@@ -26,6 +26,9 @@ gem 'font-awesome-sass'
 # use geocoder for geo localisation with google maps
 gem 'geocoder'
 
+# Use jquery ui for datepicker
+gem 'jquery-ui-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 

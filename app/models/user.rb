@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :reservations, dependent: :delete_all
   has_many :rooms, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

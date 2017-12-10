@@ -16,4 +16,5 @@
 //= require rails-ujs
 //= require turbolinks
 //=require toastr
+//= require jquery-ui/widgets/datepicker
 //=require settings/toastr-options
