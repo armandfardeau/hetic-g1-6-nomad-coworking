@@ -110,15 +110,14 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                 <span class="btn btn-default btn-file">
+                 <span class="btn btn-default btn-file" onchange="toastr.info('Photos will be uploaded on save')">
                  <i class="fa fa-cloud-upload fa-lg"></i> Upload pictures
-                   <%= file_field_tag 'photos[]', type: :file, multiple: true %>
+                   <%= file_field_tag 'images[]', type: :file, multiple: true %>
                  </span>
               </div>
             </div>
           </div>
-
-          <div id="photos"><%= render partial: 'rooms/photos/list'  , locals: {photos: @photos} %></div>
+          <div id="photos"><%= render partial: 'rooms/photos/list', locals: {photos: @room.photos} %></div>
 
           <div class='row'>
             <div class='form-group'>
