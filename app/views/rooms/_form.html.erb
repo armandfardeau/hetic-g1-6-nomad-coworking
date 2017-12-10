@@ -1,0 +1,183 @@
+<div class='panel panel-default'>
+  <div class='panel-heading'>
+    Became HeticBnB host
+  </div>
+  <div class='panel-body'>
+    <div class='container'>
+
+      <%= form_for @room,html: {multipart: true} do |f| %>
+
+          <div class='row'>
+            <div class='col-md-4 select'>
+              <div class='form-group'>
+                <label>Genre d'habitation</label>
+                <%= f.select :home_type,
+                             [
+                                 %w['House', 'House'],
+                                 %w['Flat', 'Flat'],
+                                 %w['Bed & Breakfast', 'Bed & Breakfast']
+                             ],
+                             id: 'home_type',
+                             prompt: 'Select...',
+                             class: 'form-control' %>
+              </div>
+            </div>
+
+            <div class='col-md-4 select'>
+              <div class='form-group'>
+                <label>Apartment type</label>
+                <%= f.select :room_type,
+                             [
+                                 %w['Entire Apartment', 'Entire  apartment'],
+                                 %w['Private room', 'Private room'],
+                                 %w['Shared apartment', 'Shared apartment']
+                             ],
+                             prompt: 'Select...',
+                             class: 'form-control' %>
+              </div>
+            </div>
+
+            <div class='col-md-4 select'>
+              <div class='form-group'>
+                <label> How many travelers ?</label>
+                <%= f.select :accommodate,
+                             [
+                                 ['1 traveler', 1],
+                                 ['2 travelers', 2],
+                                 ['3 travelers', 3],
+                                 ['4 travelers', 4],
+                                 ['5 travelers', 5],
+                                 ['6 travelers', 6]
+                             ],
+                             prompt: 'Select....',
+                             class: 'form-control' %>
+              </div>
+            </div>
+
+          </div>
+
+          <div class='row'>
+            <div class='col-md-4 select'>
+              <div class='form-group'>
+                <label>Bedroom(s)</label>
+                <%= f.select :bed_room,
+                             [
+                                 ['1 bedroom', 1],
+                                 ['2 bedrooms', 2],
+
+                                 ['3 bedrooms', 3],
+                                 ['4 bedrooms ou plus', 4]
+                             ],
+                             prompt: 'Select the number',
+                             class: 'form-control' %>
+              </div>
+            </div>
+
+            <div class='col-md-4 select'>
+              <div class='form-group'>
+                <label>Bathroom(s)</label>
+                <%= f.select :bath_room,
+                             [
+                                 ['1 bathroom', 1],
+                                 ['2 bathrooms', 2],
+                                 ['3 bathrooms', 3],
+                                 ['4 bathrooms ou plus', 4]
+                             ],
+                             prompt: 'Select the number',
+                             class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+
+          <div class='row'>
+            <div class='form-group'>
+              <label>Give a name to your apartment</label>
+              <%= f.text_field :listing_name,
+                               placeholder: 'Ads title',
+                               class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class='row'>
+            <div class='form-group'>
+              <label>Résumé</label>
+              <%= f.text_area :summary,
+                              rows: 4,
+                              placeholder: 'Describe what makes your apartment special to visitors. ',
+                              class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class='row'>
+            <div class='form-group'>
+              <label>Address</label>
+              <%= f.text_field :address,
+                               placeholder: 'Where is your apartment located ?',
+                               class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class='row'>
+            <div class='col-md-4'>
+              <div class='form-group'>
+                <%= f.check_box :is_wifi %> Wifi
+              </div>
+
+              <div class='form-group'>
+                <%= f.check_box :is_tv %> TV
+              </div>
+
+              <div class='form-group'>
+                <%= f.check_box :is_closet %> Closet
+              </div>
+
+              <div class='form-group'>
+                <%= f.check_box :is_shampoo %> Shampoo
+              </div>
+            </div>
+
+            <div class='col-md-4'>
+              <div class='form-group'>
+                <%= f.check_box :is_kitchen %> Kitchen
+              </div>
+
+              <div class='form-group'>
+                <%= f.check_box :is_breakfast %> Breakfast, Cofee, Tea
+              </div>
+
+              <div class='form-group'>
+                <%= f.check_box :is_heating %> Heating
+              </div>
+
+              <div class='form-group'>
+                <%= f.check_box :is_air %> AC
+              </div>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-md-4'>
+              <div class='form-group'>
+                <label>Price per night</label>
+                <div class='input-group'>
+                  <%= f.text_field :price,
+                                   placeholder: 'ex: 45€',
+                                   class: 'form-control' %>
+                  <div class='input-group-addon'>€</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class='row'>
+            <div class='form-group'>
+              <%= f.check_box :active %> Active ad
+            </div>
+          </div>
+
+          <div class='actions'>
+            <%= f.submit 'Validate my ad', class: 'btn btn-primary' %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
