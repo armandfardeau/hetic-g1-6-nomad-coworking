@@ -6,8 +6,6 @@ class RoomsController < ApplicationController
     @rooms = current_user.rooms
   end
 
-  private
-
   def show
   end
 
@@ -34,6 +32,8 @@ class RoomsController < ApplicationController
       render :edit
     end
   end
+
+  private
 
   def set_room
     @room = Room.find(params[:id])
