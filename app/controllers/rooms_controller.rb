@@ -17,9 +17,9 @@ class RoomsController < ApplicationController
   def create
     @room = current_user.rooms.build(room_params)
     if @room.save
-      if params[:images]
-        params[:images].each do |i|
-          @room.photos.create(image: i)
+      if params[:photos]
+        params[:photos].each do |p|
+          @room.photos.create(photos: p)
         end
       end
       @photos = @room.photos

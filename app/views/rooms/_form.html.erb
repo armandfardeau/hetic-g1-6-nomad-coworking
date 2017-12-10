@@ -12,9 +12,9 @@
                 <label>Apartments type</label>
                 <%= f.select :home_type,
                              [
-                                 %w['House', 'House'],
-                                 %w['Flat', 'Flat'],
-                                 %w['Bed & Breakfast', 'Bed & Breakfast']
+                                 %w[House House],
+                                 %w[Flat Flat],
+                                 %w[Bed & Breakfast Bed & Breakfast]
                              ],
                              id: 'home_type',
                              prompt: 'Select...',
@@ -27,9 +27,9 @@
                 <label>Apartment type</label>
                 <%= f.select :room_type,
                              [
-                                 %w['Entire Apartment', 'Entire  apartment'],
-                                 %w['Private room', 'Private room'],
-                                 %w['Shared apartment', 'Shared apartment']
+                                 %w[Entire Apartment Entire  apartment],
+                                 %w[Private room Private room],
+                                 %w[Shared apartment' Shared apartment]
                              ],
                              prompt: 'Select...',
                              class: 'form-control' %>
@@ -65,7 +65,7 @@
                                  ['2 bedrooms', 2],
 
                                  ['3 bedrooms', 3],
-                                 ['4 bedrooms ou plus', 4]
+                                 ['4 bedrooms or more', 4]
                              ],
                              prompt: 'Select the number',
                              class: 'form-control' %>
@@ -80,7 +80,7 @@
                                  ['1 bathroom', 1],
                                  ['2 bathrooms', 2],
                                  ['3 bathrooms', 3],
-                                 ['4 bathrooms ou plus', 4]
+                                 ['4 bathrooms or more', 4]
                              ],
                              prompt: 'Select the number',
                              class: 'form-control' %>
@@ -92,7 +92,7 @@
             <div class='form-group'>
               <label>Give a name to your apartment</label>
               <%= f.text_field :listing_name,
-                               placeholder: 'Ads title',
+                               placeholder: 'ex: The glorious villa',
                                class: 'form-control' %>
             </div>
           </div>
@@ -106,6 +106,19 @@
                               class: 'form-control' %>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                 <span class="btn btn-default btn-file">
+                 <i class="fa fa-cloud-upload fa-lg"></i> Upload pictures
+                   <%= file_field_tag 'photos[]', type: :file, multiple: true %>
+                 </span>
+              </div>
+            </div>
+          </div>
+
+          <div id="photos"><%= render partial: 'rooms/photos/list'  , locals: {photos: @photos} %></div>
 
           <div class='row'>
             <div class='form-group'>
