@@ -19,3 +19,5 @@
 //= require jquery-ui/widgets/datepicker
 //= require settings/toastr-options
 //= require imports/jquery.raty
+//= require imports/sticky-kit
+//= require settings/sticky

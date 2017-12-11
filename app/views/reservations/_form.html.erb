@@ -17,7 +17,7 @@
       </div>
     </div>
     <% unless current_user %>
-        <h5>You must be logged in to book this apartment.</h5>
+        <h5>You must be logged in to book this accommodation.</h5>
     <% end %>
     <h5>
       <div id='message'></div>
@@ -66,7 +66,7 @@
                 });
 
                 $('#reservation_start_date').datepicker({
-                    dateFormat: 'dd-mm-yy',
+                    dateFormat: 'dd/mm/yy',
                     monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
                         'September', 'October', 'November', 'December'],
                     dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
@@ -119,9 +119,9 @@
                 });
 
                 $('#reservation_end_date').datepicker({
-                    dateFormat: 'dd-mm-yy',
-                    monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août',
-                        'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                    dateFormat: 'dd/mm/yy',
+                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+                        'September', 'October', 'November', 'December'],
                     dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
                     minDate: 0,
                     maxDate: '3m',

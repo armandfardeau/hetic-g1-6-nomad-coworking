@@ -2,6 +2,7 @@
   "name": "hetic-G1-Equipe-6-HeticBnB",
   "private": true,
   "dependencies": {
+    "sticky-kit": "^1.1.3",
     "travis": "^0.1.1"
   }
 }

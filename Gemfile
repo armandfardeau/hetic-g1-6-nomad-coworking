@@ -26,6 +26,9 @@ gem 'font-awesome-sass'
 # use geocoder for geo localisation with google maps
 gem 'geocoder'
 
+# use ransack for object based search
+gem 'ransack'
+
 # Use jquery ui for datepicker
 gem 'jquery-ui-rails'
 
