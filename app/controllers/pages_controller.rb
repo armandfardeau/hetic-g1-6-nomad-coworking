@@ -8,17 +8,7 @@ class PagesController < ApplicationController
     @search = @rooms_address.ransack(params[:q])
     @rooms = @search.result
     @arr_rooms = @rooms.to_a
-    return if params[:start_date].blank? && params[:end_date].blank?
-    start_date = Date.parse(params[:start_date])
-    end_date = Date.parse(params[:end_date])
-    @rooms.each do |room|
-      not_available = room.reservations.where('(? <= start_date AND start_date <= ?) OR
-            (? <= end_date AND end_date <= ?) OR (start_date < ? AND ? < end_date)', start_date, end_date,
-                                              start_date, end_date, start_date, end_date).limit(1)
-      if not_available.length > 0
-        @arr_rooms.delete(room)
-      end
-    end
+    search_availabilities(params[:start_date], params[:end_date])
   end
 end
 
@@ -30,3 +20,18 @@ def search_places(param)
     @rooms_address = Room.where(active: true).all
   end
 end
+
+def search_availabilities(start_date, end_date)
+  return if start_date.blank? && end_date.blank?
+  start_date = Date.parse(start_date)
+  end_date = Date.parse(end_date)
+  @rooms.each do |room|
+    not_available = room.reservations.where('(? <= start_date AND start_date <= ?) OR
+            (? <= end_date AND end_date <= ?) OR (start_date < ? AND ? < end_date)', start_date, end_date,
+                                            start_date, end_date, start_date, end_date).limit(1)
+    if not_available.length > 0
+      @arr_rooms.delete(room)
+    end
+  end
+end
+
