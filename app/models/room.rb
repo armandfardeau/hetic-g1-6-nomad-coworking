@@ -3,6 +3,7 @@ class Room < ApplicationRecord
   belongs_to :user
   has_many :reservations, dependent: :delete_all
   has_many :photos, dependent: :destroy
+  has_many :reviews, dependent: :delete_all
   validates :home_type, presence: true
   validates :room_type, presence: true
   validates :accommodate, presence: true
@@ -13,4 +14,9 @@ class Room < ApplicationRecord
   validates :address, presence: true
   validates :price, numericality: {only_integer: true, greater_than: 5}
   geocoded_by :address
+
+  def average_rating
+    return 0 if reviews.count.zero?
+    reviews.average(:star).round(2)
+  end
 end
