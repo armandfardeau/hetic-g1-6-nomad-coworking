@@ -4,6 +4,7 @@ module RoomsHelper
   end
 
   def nice_display_of_google_maps(room, height)
+    return if room.latitude.blank?
     render partial: 'rooms/partials/google_maps', locals: {room: room, height: height}
   end
 

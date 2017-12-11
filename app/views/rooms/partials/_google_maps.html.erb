@@ -1,24 +1,22 @@
 <!-- Google maps -->
-<% unless room.latitude.blank? %>
-    <div id="map"></div>
-    <style>
-      #map {
-        height: <%= height %>;
-        width: 100%;
-      }
-    </style>
-    <script>
-        function initMap() {
-            var uluru = {lat: <%= room.latitude %>, lng: <%= room.longitude %>};
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
-                center: uluru
-            });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
-        }
-    </script>
-    <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAPS_API_KEY'] %>&callback=initMap"></script>
-<% end %>
+<div id="map"></div>
+<style>
+  #map {
+    height: <%= height %>;
+    width: 100%;
+  }
+</style>
+<script>
+    function initMap() {
+        var uluru = {lat: <%= room.latitude %>, lng: <%= room.longitude %>};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: uluru
+        });
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+        });
+    }
+</script>
+<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAPS_API_KEY'] %>&callback=initMap"></script>

@@ -116,7 +116,7 @@
   </div>
 
 
-  <% room_nearby = @room.nearbys(2).limit(3) %>
+  <% room_nearby = @room.nearbys(2).limit(3) unless @room.nearbys(2).blank? %>
   <% if room_nearby.blank? %>
       <div class="row">
         <div class="col-md-4">
