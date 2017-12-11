@@ -1,0 +1,9 @@
+<h3>Commentaires <%= @room.average_rating %> (<%= @reviews.count %>)</h3>
+<div class="container">
+  <div>
+    <%= render 'reviews/form' if @booked && !@hasReview %>
+  </div>
+  <div>
+    <%= render partial: 'reviews/list' %>
+  </div>
+</div>
