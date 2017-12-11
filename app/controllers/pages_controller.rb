@@ -12,6 +12,8 @@ class PagesController < ApplicationController
   end
 end
 
+private
+
 def search_places(param)
   session[:aiirbnb_search] = param if param.present? && param.strip != ''
   if session[:aiirbnb_search] && session[:aiirbnb_search] != ''
@@ -26,10 +28,7 @@ def search_availabilities(start_date, end_date)
   start_date = Date.parse(start_date)
   end_date = Date.parse(end_date)
   @rooms.each do |room|
-    not_available = room.reservations.where('(? <= start_date AND start_date <= ?) OR
-            (? <= end_date AND end_date <= ?) OR (start_date < ? AND ? < end_date)', start_date, end_date,
-                                            start_date, end_date, start_date, end_date).limit(1)
-
+    not_available = room.reservations.available(start_date, end_date)
     @arr_rooms.delete(room) unless not_available.empty?
   end
 end
