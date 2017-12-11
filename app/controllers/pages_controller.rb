@@ -29,9 +29,7 @@ def search_availabilities(start_date, end_date)
     not_available = room.reservations.where('(? <= start_date AND start_date <= ?) OR
             (? <= end_date AND end_date <= ?) OR (start_date < ? AND ? < end_date)', start_date, end_date,
                                             start_date, end_date, start_date, end_date).limit(1)
-    if not_available.length > 0
-      @arr_rooms.delete(room)
-    end
+
+    @arr_rooms.delete(room) unless not_available.empty?
   end
 end
-
