@@ -4,15 +4,10 @@
 
     <div class='row'>
       <div class='col-md-12'>
-        <% unless @room.photos.blank? %>
-            <%= image_tag @room.photos[0].image.url, class: 'img-responsive' if @room.photos.length > 0 %>
-        <% end %>
+        <%= image_tag first_room_photos(@room, :original), class: 'img-responsive' %>
       </div>
     </div>
-
     <br>
-
-
     <div class='row'>
       <div class='col-md-8'>
         <div class='row'>
@@ -97,76 +92,19 @@
     </div>
   </div>
 
-  <% unless @room.photos.blank? %>
-      <!-- Carousel -->
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <% if @room.photos %>
-                <% @room.photos.each do |photo| %>
-                    <ol class="carousel-indicators">
-                      <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
-                    </ol>
-                <% end %>
-            <% end %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <%= nice_display_of_carousel(@room, :medium) %>
+    </div>
+  </div>
 
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-              <% if @room.photos %>
-                  <% @room.photos.each do |photo| %>
-                      <div class="item <%= 'active' if photo.id == @room.photos[0].id %>">
-                        <%= image_tag photo.image.url %>
-                      </div>
-                  <% end %>
-              <% end %>
-            </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= nice_display_of_google_maps(@room, '400px') %>
+    </div>
+  </div>
 
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-              <span class="sr-only">Précédent</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-              <span class="sr-only">Suivant</span>
-            </a>
-          </div>
-        </div>
-      </div>
-  <% end %>
-  <!-- end of Carousel -->
 
-  <!-- Google maps -->
-  <% unless @room.latitude.blank? %>
-      <div class="row">
-        <div class="col-md-12">
-          <div id="map"></div>
-
-          <style>
-            #map {
-              height: 400px;
-              width: 100%;
-            }
-          </style>
-
-          <script>
-              function initMap() {
-                  var uluru = {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>};
-                  var map = new google.maps.Map(document.getElementById('map'), {
-                      zoom: 15,
-                      center: uluru
-                  });
-                  var marker = new google.maps.Marker({
-                      position: uluru,
-                      map: map
-                  });
-              }
-          </script>
-          <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAPS_API_KEY'] %>&callback=initMap"></script>
-        </div>
-      </div>
-  <% end %>
   <% room_nearby = @room.nearbys(2).limit(3) %>
   <% if room_nearby.blank? %>
       <div class="row">
@@ -188,7 +126,7 @@
             <div class="col-md-4">
               <div class="panel panel-default">
                 <div class="panel-heading preview">
-                  <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
+                  <%= image_tag first_room_photos(room) %>
                 </div>
                 <div class="panel-body">
                   <%= link_to room.listing_name, room %><br>

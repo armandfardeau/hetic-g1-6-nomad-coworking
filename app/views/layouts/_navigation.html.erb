@@ -19,7 +19,7 @@
         <% else %>
             <li>
               <%= link_to new_room_path do %>
-                  <i class="fa fa-home fa-lg"></i> Become host
+                  <i class='fa fa-home fa-lg'></i> Become host
               <% end %>
             </li>
             <li class='dropdown'>
@@ -29,7 +29,9 @@
                 <%= current_user.email %>
                 <span class='caret'></span></a>
               <ul class='dropdown-menu'>
-                <li><%= link_to 'My Trips', trips_path %></li>
+                <li><%= link_to 'My ads', rooms_path %></li>
+                <li><%= link_to 'My bookings', bookings_path %></li>
+                <li><%= link_to 'My trips', trips_path %></li>
                 <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
                 <li role='separator' class='divider'></li>
                 <li><%= link_to 'Sign out', destroy_user_session_path,
