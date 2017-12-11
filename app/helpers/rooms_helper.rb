@@ -6,4 +6,9 @@ module RoomsHelper
   def nice_display_of_google_maps(room, height)
     render partial: 'rooms/partials/google_maps', locals: {room: room, height: height}
   end
+
+  def nice_display_edit_options(action = 'edit')
+    return unless controller.action_name == action
+    render 'rooms/partials/edit_options'
+  end
 end

@@ -190,17 +190,7 @@
             <%= f.submit 'Validate my ad', class: 'btn btn-primary' %>
           </div>
       <% end %>
-      <% if controller.action_name == 'edit' %>
-          <br/>
-          <hr/>
-          <br/>
-          <div class='actions text-center'>
-            <%= button_to 'delete ad', room_path(@room),
-                          data: {confirm: 'Are you sure?'},
-                          method: :delete,
-                          class: 'btn btn-danger' %>
-          </div>
-      <% end %>
+      <%= nice_display_edit_options %>
     </div>
   </div>
 </div>

@@ -1,0 +1,12 @@
+<div class="text-center row-space-2">
+  <%= link_to 'See ads', room_path(@room), class: 'btn btn-success' %>
+</div>
+<br/>
+<hr/>
+<br/>
+<div class='text-center'>
+  <%= button_to 'delete ad', room_path(@room),
+                data: {confirm: 'Are you sure?'},
+                method: :delete,
+                class: 'btn btn-danger' %>
+</div>
