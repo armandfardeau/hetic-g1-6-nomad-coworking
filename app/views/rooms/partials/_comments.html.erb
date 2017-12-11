@@ -1,7 +1,7 @@
-<h3>Commentaires <%= @room.average_rating %> (<%= @reviews.count %>)</h3>
+<h3>Reviews <%= @room.average_rating %> (<%= @reviews.count %>)</h3>
 <div class="container">
   <div>
-    <%= render 'reviews/form' if @booked && !@hasReview %>
+    <%= nice_display_comments_form(@booked, @has_review) %>
   </div>
   <div>
     <%= render partial: 'reviews/list' %>

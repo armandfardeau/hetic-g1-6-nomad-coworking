@@ -9,10 +9,9 @@ class RoomsController < ApplicationController
 
   def show
     @reviews = @room.reviews
-    if current_user
-      @booked = Reservation.booked(@room, current_user)
-      @has_review = @reviews.find_by(user_id: current_user.id)
-    end
+    return unless current_user
+    @booked = Reservation.booked(@room, current_user)
+    @has_review = @reviews.find_by(user_id: current_user.id)
   end
 
   def new
