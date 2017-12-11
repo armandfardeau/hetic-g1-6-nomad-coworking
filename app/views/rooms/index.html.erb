@@ -1,23 +1,26 @@
-<div class="col-md-3">
-  <ul class="sidebar-list">
-    <li class="sidebar-item"><%= link_to "Mes annonces", rooms_path,
-                                         class: "sidebar-link active" %></li>
+<div class='col-md-3'>
+  <ul class='sidebar-list'>
+    <li class='sidebar-item'>
+      <%= link_to 'My ads',
+                  rooms_path,
+                  class: 'sidebar-link active' %>
+    </li>
   </ul>
 </div>
-<div class="col-md-9">
-  <div class="panel panel-default panel-heading">Mes annonces</div>
+<div class='col-md-9'>
+  <div class='panel panel-default panel-heading'>My ads</div>
   <% unless @rooms.empty? %>
-      <div class="panel-body">
+      <div class='panel-body'>
         <% @rooms.each do |room| %>
-            <div class="row">
-              <div class="col-md-2">
+            <div class='row'>
+              <div class='col-md-2'>
                 <%= image_tag room.photos[0].image.url(:thumb) if room.photos.length > 0 %>
               </div>
-              <div class="col-md-7">
+              <div class='col-md-7'>
                 <%= room.listing_name %>
               </div>
-              <div class="col-md-3 right">
-                <%= link_to 'Mettre à jour', edit_room_path(room), class: 'btn btn-primary' %>
+              <div class='col-md-3 right'>
+                <%= link_to 'Update', edit_room_path(room), class: 'btn btn-primary' %>
               </div>
             </div>
             <hr>
