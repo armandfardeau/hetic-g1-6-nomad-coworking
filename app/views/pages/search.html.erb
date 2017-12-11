@@ -3,8 +3,8 @@
     <div id='widget'>
       <script>
           function initMap() {
-              <% if @arrRooms.length > 0 %>
-              var uluru = {lat: <%= @arrRooms[0].latitude %>, lng: <%= @arrRooms[0].longitude %>};
+              <% if @arr_rooms.length > 0 %>
+              var uluru = {lat: <%= @arr_rooms[0].latitude %>, lng: <%= @arr_rooms[0].longitude %>};
               var map = new google.maps.Map(document.getElementById('widget'), {
                   zoom: 11,
                   center: uluru
@@ -17,7 +17,7 @@
               });
               <% end %>
 
-              <% @arrRooms.each do |room| %>
+              <% @arr_rooms.each do |room| %>
               var marker = new google.maps.Marker({
                   position: {lat: <%= room.latitude %>, lng: <%= room.longitude %>},
                   map: map,
@@ -138,10 +138,10 @@
 
 
         <div class='row'>
-          <% if @arrRooms.empty? %>
+          <% if @arr_rooms.empty? %>
               No ad matches your criteria.
           <% else %>
-              <% @arrRooms.each do |room| %>
+              <% @arr_rooms.each do |room| %>
                   <div class='col-md-4'>
                     <div class='panel panel-default'>
                       <div class='panel-heading preview'>
