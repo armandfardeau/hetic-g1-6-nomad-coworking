@@ -9,7 +9,10 @@
           </div>
           <div class='col-md-11'>
             <div>
-              <strong><%= r.user.fullname %> <%= r.star %> </strong>
+              <strong>
+                <%= r.user.fullname %>
+                <div id="stars_<%= r.id %>"></div>
+              </strong>
               <span class='pull-right'>
                  <%= nice_display_delete_comment(@room, r) %>
                  </span>
@@ -18,5 +21,14 @@
             <div><%= r.comment %></div>
           </div>
         </div>
+        
+
+        <script>
+            $('#stars_<%= r.id %>').raty({
+                path: '/assets',
+                readOnly: true,
+                score: <%= r.star %>
+            });
+        </script>
     <% end %>
 <% end %>

@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require turbolinks
-//=require toastr
+//= require toastr
 //= require jquery-ui/widgets/datepicker
-//=require settings/toastr-options
+//= require settings/toastr-options
+//= require imports/jquery.raty

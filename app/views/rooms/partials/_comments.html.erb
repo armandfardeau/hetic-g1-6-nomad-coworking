@@ -1,4 +1,4 @@
-<h3>Reviews <%= @room.average_rating %> (<%= @reviews.count %>)</h3>
+<h3>Reviews <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
 <div class="container">
   <div>
     <%= nice_display_comments_form(@booked, @has_review) %>
@@ -7,3 +7,10 @@
     <%= render partial: 'reviews/list' %>
   </div>
 </div>
+<script>
+    $('#average_rating').raty({
+        path: '/assets',
+        readOnly: true,
+        score: <%= @room.average_rating %>
+    });
+</script>
