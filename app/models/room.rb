@@ -19,4 +19,12 @@ class Room < ApplicationRecord
     return 0 if reviews.count.zero?
     reviews.average(:star).round(2)
   end
+
+  def self.active(place = '', distance = 0)
+    if !place.empty? && !distance
+      where(active: true).near(place, distance, order: 'distance')
+    else
+      where(active: true).all
+    end
+  end
 end
