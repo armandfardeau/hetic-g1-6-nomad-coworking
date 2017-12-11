@@ -19,7 +19,10 @@
           </div>
           <div class='col-md-9'>
             <h4><%= @room.listing_name %></h4>
-            <%= @room.address %>
+            <a href="#map" class="sidebar-link"><%= @room.address %></a>
+            <a href="#average_rating" class="sidebar-link">
+              <span id="average_rating_header" class="average_rating"></span> <%= @reviews.count %>
+            </a>
             <div class='row text-center row-space-1'>
               <div class='col-sm-3'>
                 <i class='fa fa-home fa-2x'></i>
