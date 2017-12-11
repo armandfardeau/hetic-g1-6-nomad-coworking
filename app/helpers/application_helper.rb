@@ -9,8 +9,6 @@ module ApplicationHelper
 
   def first_room_photos(room, size = :medium)
     return 'default_room_photos.svg' if room.photos.blank? || room.nil?
-    if room.photos.length > 0
-      room.photos[0].image.url(size)
-    end
+    room.photos[0].image.url(size) unless room.photos.empty?
   end
 end
