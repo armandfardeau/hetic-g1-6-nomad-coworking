@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/preload' => 'reservations#preload'
   get '/preview' => 'reservations#preview'
   get '/trips' => 'reservations#trips'
+  get '/bookings' => 'reservations#bookings'
   devise_for :users,
              controllers: {registrations: 'registrations'},
              path: '',
