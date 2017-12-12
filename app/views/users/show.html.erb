@@ -1,5 +1,10 @@
 <div class='col-md-3'>
   <%= image_tag avatar_url(@user), class: 'avatar-full' %>
+  <% if current_user != @user %>
+      <div class='row-space-2'>
+        <%= link_to 'Send message', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: 'btn btn-primary wide' %>
+      </div>
+  <% end %>
   <div class='panel panel-default'>
     <div class='panel-heading'>Checking</div>
     <div class='panel-body'>
@@ -15,14 +20,14 @@
   </div>
 </div>
 <h4>Ads: (<%= @user.rooms.length %>)</h4><br>
-<div class="row">
+<div class='row'>
   <% @user.rooms.each do |room| %>
-      <div class="col-md-4">
-        <div class="panel panel-default">
-          <div class="panel-heading preview">
+      <div class='col-md-4'>
+        <div class='panel panel-default'>
+          <div class='panel-heading preview'>
             <%= image_tag first_room_photos(room) %>
           </div>
-          <div class="panel-body">
+          <div class='panel-body'>
             <%= link_to room.listing_name, room %>
           </div>
         </div>

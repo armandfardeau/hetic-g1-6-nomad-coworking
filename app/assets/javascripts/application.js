@@ -21,3 +21,4 @@
 //= require imports/jquery.raty
 //= require imports/sticky-kit
 //= require settings/sticky
+//= require rails-timeago-all

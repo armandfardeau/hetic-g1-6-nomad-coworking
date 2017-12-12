@@ -1,0 +1,8 @@
+.conversation {
+  color: $grey-light;
+  padding: 10px;
+}
+
+.conversation:hover, .conversation:focus {
+  background-color: $grey-lighter;
+}
