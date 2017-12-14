@@ -3,12 +3,7 @@ class MessagesController < ApplicationController
   before_action :set_conversation
 
   def index
-    if current_user == @conversation.sender || current_user == @conversation.recipient
-      @other = current_user == @conversation.sender ? @conversation.recipient : @conversation.sender
-      @messages = @conversation.messages.order('created_at DESC')
-    else
-      redirect_to conversations_path, alert: 'Vous ne pouvez pas accéder à cette page.'
-    end
+    conversation_params(@conversation)
   end
 
   def create
@@ -29,5 +24,18 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:content, :user_id)
+  end
+
+  def conversation_params(conversation)
+    if current_user == conversation.sender || current_user == conversation.recipient
+      if current_user == conversation.sender
+        @other = conversation.recipient
+      else
+        @other = conversation.sender
+      end
+      @messages = conversation.messages.order('created_at DESC')
+    else
+      redirect_to conversations_path, alert: 'Vous ne pouvez pas accéder à cette page.'
+    end
   end
 end

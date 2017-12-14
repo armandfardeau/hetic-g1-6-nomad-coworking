@@ -4,7 +4,7 @@ Rails.application.configure do
   #     path: ':id/:style/:filename'
   # )
 
-  config.action_mailer.delivery_method = :test #aucun mail en local
+  config.action_mailer.delivery_method = :test
   config.action_mailer.default_url_options = {
       host: 'localhost:3000'
   }
