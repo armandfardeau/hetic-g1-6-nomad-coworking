@@ -1,9 +1,7 @@
-<div class='panel panel-default'>
-  <div class='panel-body'>
-
-
-    <div class='row'>
-      <div class='col-md-12'>
+<div class="row">
+  <div class='panel panel-default'>
+    <div class='panel-body'>
+      <div class='col-md-12 text-center'>
         <%= image_tag first_room_photos(@room, :original), class: 'img-responsive' %>
       </div>
     </div>
@@ -28,13 +26,13 @@
                 <i class='fa fa-home fa-2x'></i>
               </div>
               <div class='col-sm-3'>
-                <i class='fa fa-users fa-2x'></i>
+                <i class='fa fa-desktop fa-2x'></i>
               </div>
               <div class='col-sm-3'>
-                <i class='fa fa-bed fa-2x'></i>
+                <i class='fa fa-sticky-note fa-2x'></i>
               </div>
               <div class='col-sm-3'>
-                <i class='fa fa-bath fa-2x'></i>
+                <i class='fa fa-calendar fa-2x'></i>
               </div>
             </div>
             <div class='row text-center'>
@@ -42,13 +40,13 @@
                 <%= @room.home_type %>
               </div>
               <div class='col-sm-3'>
-                <%= @room.accommodate %> <%= @room.accommodate > 1 ? 'Travellers' : 'Traveller' %>
+                <%= @room.accommodate %> <%= @room.accommodate > 1 ? 'Desktops' : 'Desktop' %>
               </div>
               <div class='col-sm-3'>
-                <%= @room.bed_room %> <%= @room.bed_room > 1 ? 'Beds' : 'Bed' %>
+                <%= @room.bed_room %> <%= @room.bed_room > 1 ? 'Boards' : 'Board' %>
               </div>
               <div class='col-sm-3'>
-                <%= @room.bath_room %> <%= @room.bath_room > 1 ? 'Bathrooms' : 'Bathroom' %>
+                <%= @room.bath_room %> <%= @room.bath_room > 1 ? 'Meeting rooms' : 'Meeting room' %>
               </div>
             </div>
           </div>
@@ -93,59 +91,64 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <%= nice_display_of_carousel(@room, :medium) %>
-    </div>
-  </div>
-
-  <!-- Reviews -->
-
-  <div class="row">
-    <div class="col-md-12">
-      <%= render partial: 'rooms/partials/comments' %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12">
-      <%= nice_display_of_google_maps(@room, '400px') %>
-    </div>
-  </div>
 
 
-  <% room_nearby = @room.nearbys(2).limit(3) unless @room.nearbys(2).blank? %>
-  <% if room_nearby.blank? %>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-heading preview">
-              <p>This accommodation feels lonely, why not had yours?</p>
-            </div>
-            <div class="panel-body">
-              <%= link_to 'Add an accommodation', new_room_path, class: 'btn btn-primary' %><br>
-            </div>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <%= nice_display_of_carousel(@room, :original) %>
       </div>
-  <% else %>
-      <h3>Near this accommodation: </h3>
-      <div class="row">
-        <% for room in @room.nearbys(2).limit(3) %>
-            <div class="col-md-4">
-              <div class="panel panel-default">
-                <div class="panel-heading preview">
-                  <%= image_tag first_room_photos(room) %>
-                </div>
-                <div class="panel-body">
-                  <%= link_to room.listing_name, room %><br>
-                  (at <%= (room.distance*1.6).round(2) %> km)
+    </div>
+
+    <!-- Reviews -->
+
+    <div class="row row-space-3">
+      <div class="col-md-12">
+        <%= render partial: 'rooms/partials/comments' %>
+      </div>
+    </div>
+
+    <div class="row row-space-3">
+      <div class="col-md-12">
+        <%= nice_display_of_google_maps(@room, '400px') %>
+      </div>
+    </div>
+
+
+    <div class="row row-space-3">
+      <div class="col-md-12">
+        <% room_nearby = @room.nearbys(2).limit(3) unless @room.nearbys(2).blank? %>
+        <% if room_nearby.blank? %>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading preview">
+                    <p>This accommodation feels lonely, why not had yours?</p>
+                  </div>
+                  <div class="panel-body">
+                    <%= link_to 'Add an accommodation', new_room_path, class: 'btn btn-primary' %><br>
+                  </div>
                 </div>
               </div>
             </div>
-            </div>
+        <% else %>
+            <h3>Near this accommodation: </h3>
+            <div class="row">
+              <% for room in @room.nearbys(2).limit(3) %>
+                  <div class="col-md-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading preview">
+                        <%= image_tag first_room_photos(room) %>
+                      </div>
+                      <div class="panel-body">
+                        <%= link_to room.listing_name, room %><br>
+                        (at <%= (room.distance*1.6).round(2) %> km)
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+              <% end %>
         <% end %>
-  <% end %>
+      </div>
+    </div>
+  </div>
 </div>
