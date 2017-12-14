@@ -1,6 +1,6 @@
 <%= video_tag 'coworking.mp4', id: 'bgid', class: 'home_page_video', autoplay: true, muted: true %>
 <div class='row'>
-  <div class='col-md-8'>
+  <div class='col-md-8 row-space-3'>
     <h1>Search your next co-working and start the nomad way of working</h1>
   </div>
 </div>
@@ -33,17 +33,19 @@
 <div class='row'>
   <% @rooms.each do |room| %>
       <div class='col-md-4'>
-        <div class='panel panel-default'>
-          <div class='panel-heading preview'>
-            <%= image_tag first_room_photos(room, :thumb) %>
-          </div>
-          <div class='panel-body'>
-            <p class='home-link'>
-              <b><%= link_to room.price, room_path(room) %> € - <%= link_to room.room_type, room_path(room) %>
-                - <%= link_to pluralize(room.bed_room, 'lit'), room_path(room) %></b>
-              <br><%= link_to room.listing_name, room_path(room) %></p>
-          </div>
-        </div>
+        <%= link_to room_path(room) do %>
+            <div class='panel panel-link panel-default'>
+              <div class='panel-heading preview'>
+                <%= image_tag first_room_photos(room, :thumb) %>
+              </div>
+              <div class='panel-body'>
+                <p class='home-link'>
+                  <b><%= room.price %> € - <%= room.room_type %>
+                    - <%= pluralize(room.bed_room, 'lit') %></b>
+                  <br><%= room.listing_name %></p>
+              </div>
+            </div>
+        <% end %>
       </div>
   <% end %>
 </div>

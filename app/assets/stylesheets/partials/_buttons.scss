@@ -1,8 +1,8 @@
 .btn.btn-primary {
-  border: 1px solid $pink;
+  border: 1px solid $primary-color;
   border-radius: 2px;
   font-weight: bold;
-  background-color: $pink;
+  background-color: $primary-color;
   color: $white;
   padding: 10px 25px 10px 25px;
 }
@@ -16,15 +16,15 @@
 }
 
 .btn-primary.btn:hover, .btn-primary.btn:focus {
-  border-color: $pink-hover;
-  border-bottom-color: $red-hover;
-  background-color: $pink-hover;
+  border-color: $primary-color-hover;
+  border-bottom-color: $primary-color;
+  background-color: $primary-color-hover;
   outline: none;
 }
 
 .btn-primary.btn:active {
-  border-color: $red;
-  background-color: $red;
+  border-color: $primary-color-hover;
+  background-color: $primary-color-hover;
   outline: none;
 }
 

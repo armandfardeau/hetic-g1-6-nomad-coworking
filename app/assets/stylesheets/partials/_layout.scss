@@ -6,6 +6,15 @@ body {
   width: 80%;
 }
 
+.panel-link {
+  box-shadow: 0 0 25px 1px rgba(102, 102, 102, 0.25);
+  transition: all .25s ease;
+  &:hover {
+    box-shadow: 0 0 25px 1px rgba(102, 102, 102, 0.35);
+    transform: scale(1.05, 1.05);
+  }
+}
+
 .panel-default .panel-heading {
   color: $grey-dark;
   background-color: $grey-lighter;

@@ -1,0 +1,8 @@
+.fa {
+  &-primary {
+    color: $primary-color;
+    &:hover {
+      color: $primary-color-hover;
+    }
+  }
+}
