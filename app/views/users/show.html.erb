@@ -8,8 +8,14 @@
   <div class='panel panel-default'>
     <div class='panel-heading'>Checking</div>
     <div class='panel-body'>
-      Email: <%= @user.email %><br>
-      Phone: <%= @user.phone_number %>
+      <% if @user.confirmed_at %>
+          <h4>Confirmed</h4>
+          Email: <%= @user.email %><br>
+          Phone: <%= @user.phone_number %>
+      <% else %>
+          <h4>Unconfirmed</h4>
+      <% end %>
+
     </div>
   </div>
 </div>

@@ -3,6 +3,8 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = current_user.reservations.create(reservation_params)
+    OfferMailer.new_reservation_owner(Room.find(@reservation.room_id), @reservation).deliver_later
+    OfferMailer.create_new_reservation_visitor(current_user.id, @reservation).deliver_later
     redirect_to @reservation.room, notice: 'Your booking has been accepted.'
   end
 

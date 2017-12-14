@@ -3,6 +3,11 @@ Rails.application.configure do
   #     storage: :cloudinary,
   #     path: ':id/:style/:filename'
   # )
+
+  config.action_mailer.delivery_method = :test #aucun mail en local
+  config.action_mailer.default_url_options = {
+      host: 'localhost:3000'
+  }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   get '/bookings' => 'reservations#bookings'
   get '/search' => 'pages#search'
   devise_for :users,
-             controllers: {registrations: 'registrations'},
+             controllers: {
+                 registrations: 'registrations', confirmations: 'confirmations'
+             },
              path: '',
              path_names: {
-                 sign_in: 'login',
-                 sign_out: 'logout',
-                 edit: 'profile'
+                 sign_in: 'login', sign_out: 'logout', edit: 'profile'
              }
   resources :users, only: [:show]
   resources :rooms do

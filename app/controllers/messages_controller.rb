@@ -15,10 +15,9 @@ class MessagesController < ApplicationController
     @message = @conversation.messages.new(message_params)
     @messages = @conversation.messages.order('created_at DESC')
 
-    if @message.save
-      respond_to do |format|
-        format.js
-      end
+    return unless @message.save
+    respond_to do |format|
+      format.js
     end
   end
 
