@@ -1,6 +1,6 @@
 <div id='wrapper'>
   <div id='sidebar'>
-    <div id='widget'>
+    <div id='widget' class="search-map">
       <script>
           function initMap() {
               <% if @arr_rooms.length > 0 %>
@@ -143,15 +143,17 @@
           <% else %>
               <% @arr_rooms.each do |room| %>
                   <div class='col-md-4'>
-                    <div class='panel panel-default'>
-                      <div class='panel-heading preview'>
-                        <%= image_tag first_room_photos(room, :medium) %>
-                      </div>
-                      <div class='panel-body'>
-                        <%= image_tag avatar_url(room.user), class: 'img-circle avatar-small' %>
-                        <%= link_to room.listing_name, room %>
-                      </div>
-                    </div>
+                    <%= link_to room do %>
+                        <div class='panel panel-link panel-default'>
+                          <div class='panel-heading preview'>
+                            <%= image_tag first_room_photos(room, :medium) %>
+                          </div>
+                          <div class='panel-body'>
+                            <%= image_tag avatar_url(room.user), class: 'img-circle avatar-small' %>
+                            <%= room.listing_name %>
+                          </div>
+                        </div>
+                    <% end %>
                   </div>
               <% end %>
           <% end %>
