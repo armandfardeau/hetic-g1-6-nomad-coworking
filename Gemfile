@@ -39,6 +39,9 @@ gem 'rails-timeago'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+# use stripe for secure payement
+gem 'stripe'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 

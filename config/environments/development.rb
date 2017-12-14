@@ -3,7 +3,8 @@ Rails.application.configure do
   #     storage: :cloudinary,
   #     path: ':id/:style/:filename'
   # )
-
+  Rails.logger = Logger.new(STDOUT)
+  Rails.logger = Log4r::Logger.new
   config.action_mailer.delivery_method = :test
   config.action_mailer.default_url_options = {
       host: 'localhost:3000'

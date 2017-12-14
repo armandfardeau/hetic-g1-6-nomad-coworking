@@ -3,8 +3,25 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = current_user.reservations.create(reservation_params)
-    OfferMailer.new_reservation_owner(Room.find(@reservation.room_id), @reservation).deliver_later
-    OfferMailer.create_new_reservation_visitor(current_user.id, @reservation).deliver_later
+    return unless @reservation.persisted?
+    @payment = Payment.new(
+        email: User.find(@reservation.user_id).email,
+        token: params[:payment]['token'],
+        reservation_id: @reservation.id,
+        amount: @reservation.total
+    )
+    begin
+      @payment.process_payment
+      if @payment.save
+        ReservationMailer.new_reservation_owner(Room.find(@reservation.room_id), @reservation).deliver_later
+        ReservationMailer.new_reservation_visitor(current_user.id, @reservation).deliver_later
+        redirect_to @reservation.room, notice: 'Your reservation has been accepted'
+      end
+    rescue StandardError
+      @reservation.destroy
+      logger.error 'Payement failed'
+      redirect_to @reservation.room, notice: 'Your payement has been declined '
+    end
     redirect_to @reservation.room, notice: 'Your booking has been accepted.'
   end
 
@@ -40,6 +57,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date, :price, :total, :room_id)
+    params.require(:reservation).permit(:start_date, :end_date, :price, :total, :room_id, :payement)
   end
 end

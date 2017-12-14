@@ -17,6 +17,8 @@ Rails.application.configure do
       host: "#{ENV['HEROKU_APP_NAME']}.herokuapp.com",
       protocol: 'https'
   }
+  Rails.logger = Logger.new(STDOUT)
+  Rails.logger = Log4r::Logger.new
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
