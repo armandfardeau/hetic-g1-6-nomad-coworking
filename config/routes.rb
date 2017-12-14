@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   get '/trips' => 'reservations#trips'
   get '/bookings' => 'reservations#bookings'
   get '/search' => 'pages#search'
+  get '/confidentiality' => 'pages#confidentiality'
   devise_for :users,
              controllers: {
-                 registrations: 'registrations', confirmations: 'confirmations'
+                 registrations: 'registrations', confirmations: 'confirmations',
+                 omniauth_callbacks: 'omniauth_callbacks'
              },
              path: '',
              path_names: {

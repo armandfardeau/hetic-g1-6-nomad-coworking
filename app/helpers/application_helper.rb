@@ -2,6 +2,8 @@ module ApplicationHelper
   def avatar_url(user)
     if user.avatar.present?
       user.avatar.url
+    elsif user.image
+      user.image
     else
       'default_profil_picture.svg'
     end

@@ -4,6 +4,9 @@
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= render 'shared/devise_errors' %>
+        <br>
+        <%= link_to 'Connexion avec Facebook', user_facebook_omniauth_authorize_path, class: 'btn btn-primary-fb' %>
+        <hr>
         <div class='form-group'>
           <%= f.label :email %><br/>
           <%= f.email_field :email, autofocus: true, placeholder: 'Your email' %>

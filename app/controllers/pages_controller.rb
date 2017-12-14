@@ -10,6 +10,9 @@ class PagesController < ApplicationController
     @arr_rooms = @rooms.to_a
     search_availabilities(params[:start_date], params[:end_date])
   end
+
+  def confidentiality
+  end
 end
 
 private

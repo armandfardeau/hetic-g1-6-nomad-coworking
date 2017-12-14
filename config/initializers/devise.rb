@@ -12,9 +12,9 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'no-reply@heticBnB.com'
+  config.mailer_sender = "no-reply@#{ENV['HEROKU_APP_NAME']}.com"
   config.allow_unconfirmed_access_for = 10.days
-
+  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: 'email', info_fields: 'email,name'
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

@@ -11,7 +11,7 @@
   padding: 10px 25px 10px 25px;
 }
 
-.btn.btn-success{
+.btn.btn-success {
   padding: 10px 25px 10px 25px;
 }
 
@@ -58,4 +58,25 @@
 
 .wide {
   width: 100%;
+}
+
+.btn-primary-fb.btn {
+  border: 1px solid $blue-fb;
+  border-radius: 2px;
+  font-weight: bold;
+  background-color: $blue-fb;
+  color: #fff;
+  padding: 10px 25px 10px 25px;
+}
+
+.btn-primary-fb.btn:hover, .btn-primary-fb.btn:focus {
+  border-color: $blue-hover-fb;
+  background-color: $blue-hover-fb;
+  outline: none;
+}
+
+.btn-primary-fb.btn:active {
+  border-color: $blue-active-fb;
+  background-color: $blue-active-fb;
+  outline: none;
 }

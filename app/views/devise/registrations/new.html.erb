@@ -4,7 +4,11 @@
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render 'shared/devise_errors' %>
-
+        <br>
+        <%= link_to 'Connexion avec Facebook', user_facebook_omniauth_authorize_path, class: 'btn btn-primary-fb' %>
+        <br><br>
+        <center>ou</center>
+        <hr>
         <div class='form-group'>
           <%= f.label :fullname %><br/>
           <%= f.text_field :fullname, autofocus: true, class: 'form-control', placeholder: 'Full name' %>
