@@ -28,3 +28,19 @@
 #article {
   width: 560px;
 }
+
+.baseline {
+  color: $grey-dark;
+  display: inline;
+  text-shadow: 0 1px darken($grey-dark, 10%);
+  transition: box-shadow ease 250ms, color ease 250ms;
+  cursor: pointer;
+
+  text-decoration: none;
+  box-shadow: 0 -5px 0 $primary-color inset;
+
+  &:hover {
+    color: $white;
+    box-shadow: 0 -80px 0 $primary-color-hover inset;
+  }
+}

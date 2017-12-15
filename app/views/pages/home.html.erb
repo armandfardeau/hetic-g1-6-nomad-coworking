@@ -1,7 +1,9 @@
 <%= video_tag 'coworking.mp4', id: 'bgid', class: 'home_page_video', autoplay: true, muted: true %>
 <div class='row'>
   <div class='col-md-8 row-space-3'>
-    <h1>Search your next co-working and start the nomad way of working</h1>
+    <%= link_to search_path do %>
+        <h1 class="baseline">Search your next co-working and start the nomad way of working</h1>
+    <% end %>
   </div>
 </div>
 <br>

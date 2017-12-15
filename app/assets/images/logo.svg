@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="953px" height="957px" viewBox="0 0 953 957" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" fill="#D8D8D8">
+            <path d="M473.5,669 C367.185186,669 281,582.814814 281,476.5 C281,370.185186 367.185186,284 473.5,284 C579.814814,284 666,370.185186 666,476.5 C666,582.814814 579.814814,669 473.5,669 Z M474,624 C555.185858,624 621,558.185858 621,477 C621,395.814142 555.185858,330 474,330 C392.814142,330 327,395.814142 327,477 C327,558.185858 392.814142,624 474,624 Z" id="Combined-Shape"></path>
+            <g id="arrow" transform="translate(447.000000, 0.000000)">
+                <path d="M26,252.5 L24,0 L52,204.5 L26,252.5 Z M26,252.5 L-5.68434189e-14,204.5 L24,1 L26,252.5 Z" id="Combined-Shape"></path>
+            </g>
+            <g id="arrow" transform="translate(826.000000, 478.500000) rotate(90.000000) translate(-826.000000, -478.500000) translate(800.000000, 352.000000)">
+                <path d="M26,252.5 L24,0 L52,204.5 L26,252.5 Z M26,252.5 L-5.68434189e-14,204.5 L24,1 L26,252.5 Z" id="Combined-Shape"></path>
+            </g>
+            <g id="arrow" transform="translate(473.000000, 830.500000) rotate(180.000000) translate(-473.000000, -830.500000) translate(447.000000, 704.000000)">
+                <path d="M26,252.5 L24,0 L52,204.5 L26,252.5 Z M26,252.5 L-5.68434189e-14,204.5 L24,1 L26,252.5 Z" id="Combined-Shape"></path>
+            </g>
+            <g id="arrow" transform="translate(127.000000, 478.500000) rotate(-90.000000) translate(-127.000000, -478.500000) translate(101.000000, 352.000000)">
+                <path d="M26,252.5 L24,0 L52,204.5 L26,252.5 Z M26,252.5 L-5.68434189e-14,204.5 L24,1 L26,252.5 Z" id="Combined-Shape"></path>
+            </g>
+            <g id="triangle" transform="translate(545.000000, 202.000000)">
+                <polygon id="Path" points="0.5 19 26.5 0 32.5 31.5"></polygon>
+            </g>
+            <g id="triangle" transform="translate(711.980970, 356.980970) rotate(45.000000) translate(-711.980970, -356.980970) translate(695.480970, 340.980970)">
+                <polygon id="Path" points="0.5 19 26.5 0 32.5 31.5"></polygon>
+            </g>
+            <g id="triangle" transform="translate(715.500000, 563.000000) rotate(-32.000000) translate(-715.500000, -563.000000) translate(699.000000, 547.000000)">
+                <polygon id="Path" points="0.5 19 26.5 0 32.5 31.5"></polygon>
+            </g>
+            <g id="triangle" transform="translate(578.027699, 706.622119) rotate(10.000000) translate(-578.027699, -706.622119) translate(561.527699, 690.622119)">
+                <polygon id="Path" points="0.5 19 26.5 0 32.5 31.5"></polygon>
+            </g>
+            <g id="triangle" transform="translate(374.106406, 716.289419) rotate(-60.000000) translate(-374.106406, -716.289419) translate(357.606406, 700.289419)">
+                <polygon id="Path" points="0.5 19 26.5 0 32.5 31.5"></polygon>
+            </g>
+            <g id="triangle" transform="translate(226.880630, 573.516443) rotate(-14.000000) translate(-226.880630, -573.516443) translate(210.380630, 557.516443)">
+                <polygon id="Path" points="0.5 19 26.5 0 32.5 31.5"></polygon>
+            </g>
+            <g id="triangle" transform="translate(224.500000, 375.000000) rotate(-90.000000) translate(-224.500000, -375.000000) translate(208.000000, 359.000000)">
+                <polygon id="Path" points="0.5 19 26.5 0 32.5 31.5"></polygon>
+            </g>
+            <g id="triangle" transform="translate(368.456976, 226.125009) rotate(193.000000) translate(-368.456976, -226.125009) translate(351.956976, 210.125009)">
+                <polygon id="Path" points="0.5 19 26.5 0 32.5 31.5"></polygon>
+            </g>
+            <path d="M488.904219,477.374771 L578.183723,435.743054 L572.267068,423.054745 L504.02116,454.878335 L557.267027,401.632468 L547.367532,391.732973 L489.336984,449.763522 L518.747377,373.146827 L505.677251,368.129675 L470.374771,460.095781 L428.743054,370.816277 L416.054745,376.732932 L457.333727,465.255994 L366.146827,430.252623 L361.129675,443.322749 L453.095781,478.625229 L363.816277,520.256946 L369.732932,532.945255 L437.97884,501.121665 L384.732973,554.367532 L394.632468,564.267027 L452.663016,506.236478 L423.252623,582.853173 L436.322749,587.870325 L471.625229,495.904219 L513.256946,585.183723 L525.945255,579.267068 L484.666273,490.744006 L575.853173,525.747377 L580.870325,512.677251 L488.904219,477.374771 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>

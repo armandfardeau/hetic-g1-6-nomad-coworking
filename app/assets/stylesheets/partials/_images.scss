@@ -1,8 +1,14 @@
-.img-responsive{
+.img-responsive {
   display: initial;
 }
 
-.carousel-inner > .item > img, .carousel-inner > .item > a > img{
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
   min-width: 100%;
   max-width: initial;
+}
+
+.logo-brand {
+  display: inline-block !important;
+  height: 100%;
+  width: auto;
 }
