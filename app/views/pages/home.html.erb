@@ -38,13 +38,15 @@
         <%= link_to office_path(office) do %>
             <div class='panel panel-link panel-default'>
               <div class='panel-heading preview'>
-                <%= image_tag first_office_photos(office, :medium) %>
-              </div>
-              <div class='panel-body'>
-                <p class='home-link'>
-                  <b><%= office.price %> € - <%= office.privacy_type %>
-                    - <%= pluralize(office.boards_number, 'lit') %></b>
-                  <br><%= office.listing_name %></p>
+                <div class="preview__container">
+                  <%= image_tag first_office_photos(office, :medium), class: 'preview__content' %>
+                </div>
+                <div class='panel-body'>
+                  <p class='home-link'>
+                    <b><%= office.price %> € - <%= office.privacy_type %>
+                      - <%= pluralize(office.boards_number, 'lit') %></b>
+                    <br><%= office.listing_name %></p>
+                </div>
               </div>
             </div>
         <% end %>
