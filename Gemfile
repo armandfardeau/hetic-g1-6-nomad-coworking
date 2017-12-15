@@ -39,6 +39,9 @@ gem 'rails-timeago'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+# add rollbar for better debug
+gem 'rollbar'
+
 # use stripe for secure payement
 gem 'stripe'
 
