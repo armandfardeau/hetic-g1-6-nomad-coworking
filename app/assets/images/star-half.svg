@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
-    <title>Star-half</title>
+<svg width="29px" height="29px" viewBox="0 0 29 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>star-half</title>
     <desc>Created with Sketch.</desc>
     <defs>
         <linearGradient x1="50.645727%" y1="39.6310389%" x2="50.3009407%" y2="39.6310389%" id="linearGradient-1">
             <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="0%"></stop>
-            <stop stop-color="#F28862" offset="100%"></stop>
+            <stop stop-color="#6BB0B1" offset="100%"></stop>
         </linearGradient>
     </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <g id="Star-half" transform="translate(1.000000, 1.000000)" stroke="#F28862" stroke-width="2" fill="url(#linearGradient-1)">
-            <polygon id="Star-Copy" points="11.5 17.936796 4.39260913 23 6.77601563 14.327993 1.11022302e-16 8.78521826 8.58041709 8.48882723 11.5 0 14.4195829 8.48882723 23 8.78521826 16.2239844 14.327993 18.6073909 23"></polygon>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="star-half" transform="translate(3.000000, 3.000000)" stroke-width="2" stroke="#6BB0B1" fill="url(#linearGradient-1)" fill-rule="nonzero">
+            <polygon id="Star-Copy" points="11.5 17.936796 4.39260913 23 6.77601563 14.327993 0 8.78521826 8.58041709 8.48882723 11.5 0 14.4195829 8.48882723 23 8.78521826 16.2239844 14.327993 18.6073909 23"></polygon>
         </g>
     </g>
 </svg>
