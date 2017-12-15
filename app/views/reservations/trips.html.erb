@@ -11,7 +11,7 @@
               From <%= trip.start_date.strftime('%d.%m.%y') %> to <%= trip.end_date.strftime('%d.%m.%y') %>
             </div>
             <div class='col-md-6'>
-              <%= link_to room_path(trip.room) do %>
+              <%= link_to office_path(trip.room) do %>
                   <%= image_tag first_room_photos(trip.room, :thumb) %>
               <% end %>
             </div>

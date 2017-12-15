@@ -25,16 +25,16 @@
     <%= @user.description %>
   </div>
 </div>
-<h4>Ads: (<%= @user.rooms.length %>)</h4><br>
+<h4>Ads: (<%= @user.offices.length %>)</h4><br>
 <div class='row'>
-  <% @user.rooms.each do |room| %>
+  <% @user.offices.each do |office| %>
       <div class='col-md-4'>
         <div class='panel panel-default'>
           <div class='panel-heading preview'>
-            <%= image_tag first_room_photos(room) %>
+            <%= image_tag first_office_photos(office) %>
           </div>
           <div class='panel-body'>
-            <%= link_to room.listing_name, room %>
+            <%= link_to office.listing_name, office %>
           </div>
         </div>
       </div>
@@ -43,5 +43,5 @@
 
 <div class='col-md-12'>
   <h4>Evaluations</h4><br>
-  <%= render partial: 'users/partials/reviews_list', locals: {rooms: @user.rooms} %>
+  <%= render partial: 'users/partials/reviews_list', locals: {offices: @user.offices} %>
 </div>

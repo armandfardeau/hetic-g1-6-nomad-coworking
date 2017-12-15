@@ -1,28 +1,28 @@
-class RoomsController < ApplicationController
+class OfficesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
-  before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :set_office, only: [:show, :edit, :update, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
-    @rooms = current_user.rooms
+    @offices = current_user.offices
   end
 
   def show
-    @reviews = @room.reviews
+    @reviews = @office.reviews
     return unless current_user
-    @booked = Reservation.booked(@room, current_user)
+    @booked = Reservation.booked(@office, current_user)
     @has_review = @reviews.find_by(user_id: current_user.id)
   end
 
   def new
-    @room = current_user.rooms.build
+    @office = current_user.offices.build
   end
 
   def create
-    @room = current_user.rooms.build(room_params)
-    if @room.save
+    @office = current_user.offices.build(office_params)
+    if @office.save
       save_image params[:images]
-      redirect_to edit_room_path(@room), notice: 'Your ad has been successfully added'
+      redirect_to edit_office_path(@office), notice: 'Your ad has been successfully added'
     else
       render :new
     end
@@ -32,17 +32,17 @@ class RoomsController < ApplicationController
   end
 
   def update
-    if @room.update(room_params)
+    if @office.update(office_params)
       save_image params[:images]
-      redirect_to edit_room_path(@room), notice: 'Changes has been saved'
+      redirect_to edit_office_path(@office), notice: 'Changes has been saved'
     else
       render :edit
     end
   end
 
   def destroy
-    @room.destroy
-    redirect_to rooms_path, notice: 'Your ad has been deleted'
+    @office.destroy
+    redirect_to offices_path, notice: 'Your ad has been deleted'
   end
 
   private
@@ -50,21 +50,21 @@ class RoomsController < ApplicationController
   def save_image(param)
     return unless param
     param.each do |p|
-      @room.photos.create(image: p)
+      @office.photos.create(image: p)
     end
   end
 
-  def set_room
-    @room = Room.find(params[:id])
+  def set_office
+    @office = Office.find(params[:id])
   end
 
-  def room_params
-    params.require(:room).permit(
+  def office_params
+    params.require(:office).permit(
         :home_type,
-        :room_type,
+        :office_type,
         :accommodate,
-        :bed_room,
-        :bath_room,
+        :bed_office,
+        :bath_office,
         :listing_name,
         :summary, :address,
         :is_wifi,
@@ -81,7 +81,7 @@ class RoomsController < ApplicationController
   end
 
   def require_same_user
-    return unless current_user.id != @room.user_id
+    return unless current_user.id != @office.user_id
     flash[:danger] = 'You are not allowed to edit this page'
     redirect_to root_path
   end

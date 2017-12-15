@@ -1,5 +1,5 @@
-<%= form_for([@room, @room.reviews.new]) do |f| %>
-    <%= f.hidden_field :room_id, value: @room.id %>
+<%= form_for([@office, @office.reviews.new]) do |f| %>
+    <%= f.hidden_field :office_id, value: @office.id %>
     <div id='user_stars'></div>
     <div class='form-group row-space-1'>
       <%= f.text_area :comment,

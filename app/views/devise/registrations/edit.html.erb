@@ -24,7 +24,7 @@
 
             <div class="form-group text-center">
               <%= f.label :avatar %><br/>
-              <%= image_tag avatar_url(current_user), type: 'file', class: 'avatar-half', id: 'target' %>
+              <%= image_tag avatar_url(current_user, :medium), type: 'file', class: 'avatar-half', id: 'target' %>
               <span class="btn btn-default btn-file">Upload a picture<%= f.file_field :avatar, id: 'pictureInput' %></span>
             </div>
 

@@ -1,10 +1,10 @@
-<% unless room.photos.blank? %>
+<% unless office.photos.blank? %>
     <!-- Carousel -->
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
-          <% if room.photos %>
-              <% room.photos.each do |photo| %>
+          <% if office.photos %>
+              <% office.photos.each do |photo| %>
                   <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
                   </ol>
@@ -13,9 +13,9 @@
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
-            <% if room.photos %>
-                <% room.photos.each do |photo| %>
-                    <div class="item <%= 'active' if photo.id == room.photos[0].id %>">
+            <% if office.photos %>
+                <% office.photos.each do |photo| %>
+                    <div class="item <%= 'active' if photo.id == office.photos[0].id %>">
                       <%= image_tag photo.image.url(size) %>
                     </div>
                 <% end %>

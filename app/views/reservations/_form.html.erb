@@ -1,7 +1,7 @@
-<%= form_for([@room, @room.reservations.new], html: {class: 'cc_form'}) do |f| %>
+<%= form_for([@office, @office.reservations.new], html: {class: 'cc_form'}) do |f| %>
     <div class='row'>
       <div class='col-md-12 price_tag'>
-        <span>€<%= @room.price %></span>
+        <span>€<%= @office.price %></span>
         <span class='pull-right'>Per night</span>
       </div>
     </div>
@@ -64,8 +64,8 @@
           </div>
       <% end %>
     </div>
-    <%= f.hidden_field :room_id, value: @room.id %>
-    <%= f.hidden_field :price, value: @room.price %>
+    <%= f.hidden_field :office_id, value: @office.id %>
+    <%= f.hidden_field :price, value: @office.price %>
     <%= f.hidden_field :total, id: 'reservation_total' %>
 
     <%= f.submit 'Booking request', id: ' btn_book', class: 'btn btn-primary wide', disabled: 'true' %>
@@ -82,7 +82,7 @@
 
         $.ajax({
             url: '/preload',
-            data: {'room_id': <%= @room.id %>},
+            data: {'office_id': <%= @office.id %>},
             dataType: 'json',
             success: function (data) {
                 $.each(data, function (arrID, arrValue) {
@@ -115,7 +115,7 @@
                         var input = {
                             'start_date': start_date,
                             'end_date': end_date,
-                            'room_id': <%= @room.id %>
+                            'office_id': <%= @office.id %>
 
                         };
 
@@ -133,7 +133,7 @@
                                     $('#preview').show();
                                     $('#btn_book').attr('disabled', false);
 
-                                    var total = days * <%= @room.price %>
+                                    var total = days * <%= @office.price %>
                                         $('#reservation_days').text(days);
                                     $('#reservation_sum').text(total);
                                     $('#reservation_total').val(total);
@@ -165,7 +165,7 @@
                         var input = {
                             'start_date': start_date,
                             'end_date': end_date,
-                            'room_id': <%= @room.id %>
+                            'office_id': <%= @office.id %>
 
                         };
 
@@ -183,7 +183,7 @@
                                     $('#preview').show();
                                     $('#btn_book').attr('disabled', false);
 
-                                    var total = days * <%= @room.price %>
+                                    var total = days * <%= @office.price %>
                                         $('#reservation_days').text(days);
                                     $('#reservation_sum').text(total);
                                     $('#reservation_total').val(total);

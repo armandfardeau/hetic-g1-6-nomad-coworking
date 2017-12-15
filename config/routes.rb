@@ -16,7 +16,7 @@ Rails.application.routes.draw do
                  sign_in: 'login', sign_out: 'logout', edit: 'profile'
              }
   resources :users, only: [:show]
-  resources :rooms do
+  resources :offices do
     resources :reservations, only: [:create]
     resources :reviews, only: [:create, :destroy]
   end

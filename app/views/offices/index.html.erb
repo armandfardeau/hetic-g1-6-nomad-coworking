@@ -3,18 +3,18 @@
 </div>
 <div class='col-md-9'>
   <div class='panel panel-default panel-heading'>My ads</div>
-  <% unless @rooms.empty? %>
+  <% unless @offices.empty? %>
       <div class='panel-body'>
-        <% @rooms.each do |room| %>
+        <% @offices.each do |office| %>
             <div class='row'>
               <div class='col-md-2'>
-                <%= image_tag first_room_photos(room, :thumb) %>
+                <%= image_tag first_office_photos(office, :thumb) %>
               </div>
               <div class='col-md-7'>
-                <%= room.listing_name %>
+                <%= office.listing_name %>
               </div>
               <div class='col-md-3 right'>
-                <%= link_to 'Update', edit_room_path(room), class: 'btn btn-primary' %>
+                <%= link_to 'Update', edit_office_path(office), class: 'btn btn-primary' %>
               </div>
             </div>
             <hr>

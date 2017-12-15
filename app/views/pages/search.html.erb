@@ -3,8 +3,8 @@
     <div id='widget' class="search-map">
       <script>
           function initMap() {
-              <% if @arr_rooms.length > 0 %>
-              var uluru = {lat: <%= @arr_rooms[0].latitude %>, lng: <%= @arr_rooms[0].longitude %>};
+              <% if @arr_offices.length > 0 %>
+              var uluru = {lat: <%= @arr_offices[0].latitude %>, lng: <%= @arr_offices[0].longitude %>};
               var map = new google.maps.Map(document.getElementById('widget'), {
                   zoom: 11,
                   center: uluru
@@ -17,11 +17,11 @@
               });
               <% end %>
 
-              <% @arr_rooms.each do |room| %>
+              <% @arr_offices.each do |office| %>
               var marker = new google.maps.Marker({
-                  position: {lat: <%= room.latitude %>, lng: <%= room.longitude %>},
+                  position: {lat: <%= office.latitude %>, lng: <%= office.longitude %>},
                   map: map,
-                  title: "<%= room.listing_name %>"
+                  title: "<%= office.listing_name %>"
               });
               <% end %>
           }
@@ -138,19 +138,19 @@
 
 
         <div class='row'>
-          <% if @arr_rooms.empty? %>
+          <% if @offices.empty? %>
               No ad matches your criteria.
           <% else %>
-              <% @arr_rooms.each do |room| %>
+              <% @offices.each do |office| %>
                   <div class='col-md-4'>
-                    <%= link_to room do %>
+                    <%= link_to office do %>
                         <div class='panel panel-link panel-default'>
                           <div class='panel-heading preview'>
-                            <%= image_tag first_room_photos(room, :medium) %>
+                            <%= image_tag first_office_photos(office, :medium) %>
                           </div>
                           <div class='panel-body'>
-                            <%= image_tag avatar_url(room.user), class: 'img-circle avatar-small' %>
-                            <%= room.listing_name %>
+                            <%= image_tag avatar_url(office.user), class: 'img-circle avatar-small' %>
+                            <%= office.listing_name %>
                           </div>
                         </div>
                     <% end %>

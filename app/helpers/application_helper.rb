@@ -1,7 +1,7 @@
 module ApplicationHelper
-  def avatar_url(user)
+  def avatar_url(user, size = :original)
     if user.avatar.present?
-      user.avatar.url
+      user.avatar.url(size)
     elsif user.image
       user.image
     else
@@ -9,8 +9,8 @@ module ApplicationHelper
     end
   end
 
-  def first_room_photos(room, size = :medium)
-    return 'default_room_photos.svg' if room.photos.blank? || room.nil?
-    room.photos[0].image.url(size) unless room.photos.empty?
+  def first_office_photos(office, size = :medium)
+    return 'default_office_photos.svg' if office.photos.blank? || office.nil?
+    office.photos[0].image.url(size) unless office.photos.empty?
   end
 end

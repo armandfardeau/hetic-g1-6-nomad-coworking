@@ -1,6 +1,6 @@
-<% unless @room.errors.empty? %>
+<% unless @office.errors.empty? %>
     <script type="text/javascript">
-        <% @room.errors.full_messages.each do |msg| %>
+        <% @office.errors.full_messages.each do |msg| %>
         toastr.error('<%= msg %>')
         <% end %>
     </script>

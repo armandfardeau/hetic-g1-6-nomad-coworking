@@ -4,7 +4,7 @@
   </div>
   <div class='panel-body'>
     <div class='container'>
-      <%= form_for @room, html: {multipart: true} do |f| %>
+      <%= form_for @office, html: {multipart: true} do |f| %>
           <%= render 'shared/errors' %>
           <div class='row'>
             <div class='col-md-4 select'>
@@ -117,7 +117,7 @@
               </div>
             </div>
           </div>
-          <div id="photos"><%= render partial: 'rooms/photos/list', locals: {photos: @room.photos} %></div>
+          <div id="photos"><%= render partial: 'offices/photos/list', locals: {photos: @office.photos} %></div>
 
           <div class='row'>
             <div class='form-group'>

@@ -29,51 +29,7 @@ ActiveRecord::Schema.define(version: 20171214210200) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "payments", force: :cascade do |t|
-    t.string "email"
-    t.string "token"
-    t.integer "reservation_id"
-    t.integer "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "photos", force: :cascade do |t|
-    t.integer "room_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.index ["room_id"], name: "index_photos_on_room_id"
-  end
-
-  create_table "reservations", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.integer "price"
-    t.integer "total"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_reservations_on_room_id"
-    t.index ["user_id"], name: "index_reservations_on_user_id"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.text "comment"
-    t.integer "star", default: 1
-    t.integer "room_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_reviews_on_room_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
-  end
-
-  create_table "rooms", force: :cascade do |t|
+  create_table "offices", force: :cascade do |t|
     t.string "home_type"
     t.string "room_type"
     t.integer "accommodate"
@@ -97,7 +53,51 @@ ActiveRecord::Schema.define(version: 20171214210200) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.index ["user_id"], name: "index_rooms_on_user_id"
+    t.index ["user_id"], name: "index_offices_on_user_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "email"
+    t.string "token"
+    t.integer "reservation_id"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer "office_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["office_id"], name: "index_photos_on_office_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "office_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer "price"
+    t.integer "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["office_id"], name: "index_reservations_on_office_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "comment"
+    t.integer "star", default: 1
+    t.integer "office_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["office_id"], name: "index_reviews_on_office_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

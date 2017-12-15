@@ -13,21 +13,21 @@ class ReservationsController < ApplicationController
     begin
       @payment.process_payment
       if @payment.save
-        ReservationMailer.new_reservation_owner(Room.find(@reservation.room_id), @reservation).deliver_later
+        ReservationMailer.new_reservation_owner(Office.find(@reservation.office_id), @reservation).deliver_later
         ReservationMailer.new_reservation_visitor(current_user.id, @reservation).deliver_later
-        redirect_to @reservation.room, notice: 'Your reservation has been accepted'
+        redirect_to @reservation.office, notice: 'Your reservation has been accepted'
       end
     rescue StandardError
       @reservation.destroy
       logger.error 'Payement failed'
-      redirect_to @reservation.room, notice: 'Your payement has been declined '
+      redirect_to @reservation.office, notice: 'Your payement has been declined '
     end
-    redirect_to @reservation.room, notice: 'Your booking has been accepted.'
+    redirect_to @reservation.office, notice: 'Your booking has been accepted.'
   end
 
   def preload
-    room = Room.find(params[:room_id])
-    reservations = room.reservations.bookable
+    office = Office.find(params[:office_id])
+    reservations = office.reservations.bookable
     render json: reservations
   end
 
@@ -45,18 +45,18 @@ class ReservationsController < ApplicationController
   end
 
   def bookings
-    @rooms = current_user.rooms
+    @offices = current_user.offices
   end
 
   private
 
   def conflict(start_date, end_date)
-    room = Room.find(params[:room_id])
-    check = room.reservations.available(start_date, end_date)
+    office = Office.find(params[:office_id])
+    check = office.reservations.available(start_date, end_date)
     check unless check.empty?
   end
 
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date, :price, :total, :room_id, :payement)
+    params.require(:reservation).permit(:start_date, :end_date, :price, :total, :office_id, :payement)
   end
 end

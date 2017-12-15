@@ -8,7 +8,7 @@
 </style>
 <script>
     function initMap() {
-        var uluru = {lat: <%= room.latitude %>, lng: <%= room.longitude %>};
+        var uluru = {lat: <%= office.latitude %>, lng: <%= office.longitude %>};
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
             center: uluru

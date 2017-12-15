@@ -5,7 +5,7 @@
   <div class="panel panel-default">
     <div class="panel-heading"> My bookings</div>
     <div class="panel-body">
-      <% @rooms.each do |room| %>
+      <% @offices.each do |room| %>
           <% room.reservations.order("id DESC").each do |reservation| %>
               <div class="row">
                 <div class="col-md-2">
@@ -13,7 +13,7 @@
                   au <%= reservation.end_date.strftime('%d.%m.%y') %>
                 </div>
                 <div class="col-md-6">
-                  <%= link_to room_path(reservation.room) do %>
+                  <%= link_to office_path(reservation.room) do %>
                       <%= image_tag first_room_photos(reservation.room, :thumb) %>
                   <% end %>
                 </div>

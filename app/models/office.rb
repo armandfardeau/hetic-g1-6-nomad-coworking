@@ -1,4 +1,4 @@
-class Room < ApplicationRecord
+class Office < ApplicationRecord
   after_validation :geocode, if: :address_changed?
   belongs_to :user
   has_many :reservations, dependent: :delete_all

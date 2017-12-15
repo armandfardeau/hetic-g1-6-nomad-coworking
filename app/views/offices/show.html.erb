@@ -2,7 +2,7 @@
   <div class='panel panel-default'>
     <div class='panel-body'>
       <div class='col-md-12 text-center'>
-        <%= image_tag first_room_photos(@room, :original), class: 'img-responsive' %>
+        <%= image_tag first_office_photos(@office, :original), class: 'img-responsive' %>
       </div>
     </div>
     <br>
@@ -10,14 +10,14 @@
       <div class='col-md-8'>
         <div class='row'>
           <div class='col-md-3 text-center'>
-            <%= image_tag avatar_url(@room.user), class: 'img-circle avatar-large' %>
+            <%= image_tag avatar_url(@office.user), class: 'img-circle avatar-large' %>
             <br>
             <br>
-            <%= @room.user.fullname %>
+            <%= @office.user.fullname %>
           </div>
           <div class='col-md-9'>
-            <h4><%= @room.listing_name %></h4>
-            <a href="#map" class="sidebar-link"><%= @room.address %></a>
+            <h4><%= @office.listing_name %></h4>
+            <a href="#map" class="sidebar-link"><%= @office.address %></a>
             <a href="#average_rating" class="sidebar-link">
               <span id="average_rating_header" class="average_rating"></span> <%= @reviews.count %>
             </a>
@@ -37,16 +37,16 @@
             </div>
             <div class='row text-center'>
               <div class='col-sm-3'>
-                <%= @room.home_type %>
+                <%= @office.home_type %>
               </div>
               <div class='col-sm-3'>
-                <%= @room.accommodate %> <%= @room.accommodate > 1 ? 'Desktops' : 'Desktop' %>
+                <%= @office.accommodate %> <%= @office.accommodate > 1 ? 'Desktops' : 'Desktop' %>
               </div>
               <div class='col-sm-3'>
-                <%= @room.bed_room %> <%= @room.bed_room > 1 ? 'Boards' : 'Board' %>
+                <%= @office.bed_room %> <%= @office.bed_room > 1 ? 'Boards' : 'Board' %>
               </div>
               <div class='col-sm-3'>
-                <%= @room.bath_room %> <%= @room.bath_room > 1 ? 'Meeting rooms' : 'Meeting room' %>
+                <%= @office.bath_room %> <%= @office.bath_room > 1 ? 'Meeting rooms' : 'Meeting room' %>
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@
     <div class='row'>
       <div class='col-md-12'>
         <h2>About this accommodation</h2>
-        <p><%= @room.summary %></p>
+        <p><%= @office.summary %></p>
       </div>
     </div>
 
@@ -74,18 +74,18 @@
         <div class='row'>
           <div class='col-md-6'>
             <ul class='equipments'>
-              <li class='<%= 'text-line-through' unless @room.is_wifi %>'>Wifi</li>
-              <li class='<%= 'text-line-through' unless @room.is_tv %>'>TV</li>
-              <li class='<%= 'text-line-through' unless @room.is_closet %>'>Closet</li>
-              <li class='<%= 'text-line-through' unless @room.is_shampoo %>'>Shampoo</li>
+              <li class='<%= 'text-line-through' unless @office.is_wifi %>'>Wifi</li>
+              <li class='<%= 'text-line-through' unless @office.is_tv %>'>TV</li>
+              <li class='<%= 'text-line-through' unless @office.is_closet %>'>Closet</li>
+              <li class='<%= 'text-line-through' unless @office.is_shampoo %>'>Shampoo</li>
             </ul>
           </div>
           <div class='col-md-6'>
             <ul class='equipments'>
-              <li class='<%= 'text-line-through' unless @room.is_kitchen %>'>Kitchen</li>
-              <li class='<%= 'text-line-through' unless @room.is_breakfast %>'>Breakfast</li>
-              <li class='<%= 'text-line-through' unless @room.is_heating %>'>Heating</li>
-              <li class='<%= 'text-line-through' unless @room.is_air %>'>AC</li>
+              <li class='<%= 'text-line-through' unless @office.is_kitchen %>'>Kitchen</li>
+              <li class='<%= 'text-line-through' unless @office.is_breakfast %>'>Breakfast</li>
+              <li class='<%= 'text-line-through' unless @office.is_heating %>'>Heating</li>
+              <li class='<%= 'text-line-through' unless @office.is_air %>'>AC</li>
             </ul>
           </div>
         </div>
@@ -95,7 +95,7 @@
 
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <%= nice_display_of_carousel(@room, :original) %>
+        <%= nice_display_of_carousel(@office, :original) %>
       </div>
     </div>
 
@@ -103,21 +103,21 @@
 
     <div class="row row-space-3">
       <div class="col-md-12">
-        <%= render partial: 'rooms/partials/comments' %>
+        <%= render partial: 'offices/partials/comments' %>
       </div>
     </div>
 
     <div class="row row-space-3">
       <div class="col-md-12">
-        <%= nice_display_of_google_maps(@room, '400px') %>
+        <%= nice_display_of_google_maps(@office, '400px') %>
       </div>
     </div>
 
 
     <div class="row row-space-3">
       <div class="col-md-12">
-        <% room_nearby = @room.nearbys(2).limit(3) unless @room.nearbys(2).blank? %>
-        <% if room_nearby.blank? %>
+        <% office_nearby = @office.nearbys(2).limit(3) unless @office.nearbys(2).blank? %>
+        <% if office_nearby.blank? %>
             <div class="row">
               <div class="col-md-4">
                 <div class="panel panel-default">
@@ -125,7 +125,7 @@
                     <p>This accommodation feels lonely, why not had yours?</p>
                   </div>
                   <div class="panel-body">
-                    <%= link_to 'Add an accommodation', new_room_path, class: 'btn btn-primary' %><br>
+                    <%= link_to 'Add an accommodation', new_office_path, class: 'btn btn-primary' %><br>
                   </div>
                 </div>
               </div>
@@ -133,15 +133,15 @@
         <% else %>
             <h3>Near this accommodation: </h3>
             <div class="row">
-              <% for room in @room.nearbys(2).limit(3) %>
+              <% for office in @office.nearbys(2).limit(3) %>
                   <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading preview">
-                        <%= image_tag first_room_photos(room) %>
+                        <%= image_tag first_office_photos(office) %>
                       </div>
                       <div class="panel-body">
-                        <%= link_to room.listing_name, room %><br>
-                        (at <%= (room.distance*1.6).round(2) %> km)
+                        <%= link_to office.listing_name, office %><br>
+                        (at <%= (office.distance*1.6).round(2) %> km)
                       </div>
                     </div>
                   </div>
