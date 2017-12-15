@@ -22,3 +22,4 @@
 //= require settings/sticky
 //= require rails-timeago-all
 //= require functions/preview_equalizer
+//= require functions/avatar_preview

@@ -1,4 +1,10 @@
 images_seeds_path = Pathname('db/seeds/images_seeds')
+
+User.create! fullname: 'Armand Fardeau',
+             email: 'fardeauarmand@gmail.com',
+             password: 'adminadmin',
+             password_confirmation: 'adminadmin'
+
 user_zero = User.create! fullname: 'John Doe',
                          avatar: File.new(Rails.root.join(images_seeds_path, 'john_doe.jpg')),
                          email: 'johndoe@admin.com',

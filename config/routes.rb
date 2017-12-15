@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get '/preload' => 'reservations#preload'
   get '/preview' => 'reservations#preview'
-  get '/past' => 'reservations#pasts', as: 'past'
+  get '/past' => 'reservations#pasts'
   get '/bookings' => 'reservations#bookings'
   get '/search' => 'pages#search'
   get '/confidentiality' => 'pages#confidentiality'
