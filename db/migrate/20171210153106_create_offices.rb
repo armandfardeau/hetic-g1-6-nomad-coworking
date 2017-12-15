@@ -3,17 +3,17 @@ class CreateOffices < ActiveRecord::Migration[5.1]
     create_table :offices do |t|
       t.string :office_type
       t.string :privacy_type
-      t.integer :accommodate
-      t.integer :bed_room
-      t.integer :bath_room
+      t.integer :capacity
+      t.integer :boards_number
+      t.integer :meeting_room
       t.string :listing_name
       t.text :summary
       t.string :address
       t.boolean :is_wifi
       t.boolean :is_tv
-      t.boolean :is_closet
-      t.boolean :is_shampoo
-      t.boolean :is_breakfast
+      t.boolean :is_locker
+      t.boolean :is_pet_friendly
+      t.boolean :is_coffee
       t.boolean :is_heating
       t.boolean :is_air
       t.boolean :is_kitchen

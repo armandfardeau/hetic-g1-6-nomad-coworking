@@ -40,13 +40,13 @@
                 <%= @office.office_type %>
               </div>
               <div class='col-sm-3'>
-                <%= @office.accommodate %> <%= @office.accommodate > 1 ? 'Desktops' : 'Desktop' %>
+                <%= @office.capacity %> <%= @office.capacity > 1 ? 'Desktops' : 'Desktop' %>
               </div>
               <div class='col-sm-3'>
-                <%= @office.bed_room %> <%= @office.bed_room > 1 ? 'Boards' : 'Board' %>
+                <%= @office.boards_number %> <%= @office.boards_number > 1 ? 'Boards' : 'Board' %>
               </div>
               <div class='col-sm-3'>
-                <%= @office.bath_room %> <%= @office.bath_room > 1 ? 'Meeting rooms' : 'Meeting room' %>
+                <%= @office.meeting_room %> <%= @office.meeting_room > 1 ? 'Meeting rooms' : 'Meeting room' %>
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
 
     <div class='row'>
       <div class='col-md-12'>
-        <h2>About this accommodation</h2>
+        <h2>About this place</h2>
         <p><%= @office.summary %></p>
       </div>
     </div>
@@ -76,14 +76,14 @@
             <ul class='equipments'>
               <li class='<%= 'text-line-through' unless @office.is_wifi %>'>Wifi</li>
               <li class='<%= 'text-line-through' unless @office.is_tv %>'>TV</li>
-              <li class='<%= 'text-line-through' unless @office.is_closet %>'>Closet</li>
-              <li class='<%= 'text-line-through' unless @office.is_shampoo %>'>Shampoo</li>
+              <li class='<%= 'text-line-through' unless @office.is_locker %>'>Locker</li>
+              <li class='<%= 'text-line-through' unless @office.is_pet_friendly %>'>Pet friendly</li>
             </ul>
           </div>
           <div class='col-md-6'>
             <ul class='equipments'>
               <li class='<%= 'text-line-through' unless @office.is_kitchen %>'>Kitchen</li>
-              <li class='<%= 'text-line-through' unless @office.is_breakfast %>'>Breakfast</li>
+              <li class='<%= 'text-line-through' unless @office.is_coffee %>'>Coffee</li>
               <li class='<%= 'text-line-through' unless @office.is_heating %>'>Heating</li>
               <li class='<%= 'text-line-through' unless @office.is_air %>'>AC</li>
             </ul>
@@ -122,16 +122,16 @@
               <div class="col-md-4">
                 <div class="panel panel-default">
                   <div class="panel-heading preview">
-                    <p>This accommodation feels lonely, why not had yours?</p>
+                    <p>This place feels lonely, why not had yours?</p>
                   </div>
                   <div class="panel-body">
-                    <%= link_to 'Add an accommodation', new_office_path, class: 'btn btn-primary' %><br>
+                    <%= link_to 'Add an place', new_office_path, class: 'btn btn-primary' %><br>
                   </div>
                 </div>
               </div>
             </div>
         <% else %>
-            <h3>Near this accommodation: </h3>
+            <h3>Near this place: </h3>
             <div class="row">
               <% for office in @office.nearbys(2).limit(3) %>
                   <div class="col-md-4">

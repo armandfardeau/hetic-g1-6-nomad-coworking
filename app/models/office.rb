@@ -6,9 +6,9 @@ class Office < ApplicationRecord
   has_many :reviews, dependent: :delete_all
   validates :office_type, presence: true
   validates :privacy_type, presence: true
-  validates :accommodate, presence: true
-  validates :bed_room, presence: true
-  validates :bath_room, presence: true
+  validates :capacity, presence: true
+  validates :boards_number, presence: true
+  validates :meeting_room, presence: true
   validates :listing_name, presence: true, length: {maximum: 75}
   validates :summary, presence: true, length: {maximum: 600}
   validates :address, presence: true
