@@ -14,10 +14,10 @@
                 <div id="stars_<%= r.id %>"></div>
               </strong>
               <span class='pull-right'>
-                 <%= nice_display_delete_comment(@room, r) %>
+                 <%= nice_display_delete_comment(@office, r) %>
                  </span>
             </div>
-            <div><%= r.created_at.strftime('%d.%m.%y') %></div>
+            <div><%= r.created_at.strftime('%d.%m.%y') %> - <%= timeago_tag r.created_at %></div>
             <div><%= r.comment %></div>
           </div>
         </div>
