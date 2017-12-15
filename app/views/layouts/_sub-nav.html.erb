@@ -6,6 +6,6 @@
     <%= link_to 'My bookings', bookings_path, class: current_page?(controller: 'reservations', action: 'bookings') ? 'active sidebar-link' : 'sidebar-link' %>
   </li>
   <li class='sidebar-item'>
-    <%= link_to 'My past co-working', trips_path, class: current_page?(controller: 'reservations', action: 'trips') ? 'active sidebar-link' : 'sidebar-link' %>
+    <%= link_to 'My past co-working', past_path, class: current_page?(controller: 'reservations', action: 'pasts') ? 'active sidebar-link' : 'sidebar-link' %>
   </li>
 </ul>

@@ -1,6 +1,6 @@
 <div class='panel panel-default'>
   <div class='panel-heading'>
-    Become Hetic-BnB host
+    Host a co-working
   </div>
   <div class='panel-body'>
     <div class='container'>
@@ -14,7 +14,7 @@
                              [
                                  %w[House House],
                                  %w[Flat Flat],
-                                 %w[Bed & Breakfast Bed & Breakfast]
+                                 ['Classic office', 'Classic office']
                              ],
                              id: 'office_type',
                              prompt: 'Select...',
@@ -24,12 +24,12 @@
 
             <div class='col-md-4 select'>
               <div class='form-group'>
-                <label>Apartment type</label>
+                <label>Privacy type</label>
                 <%= f.select :privacy_type,
                              [
-                                 %w[Entire place Entire place],
-                                 %w[Private room Private room],
-                                 %w[Shared place' Shared place]
+                                 ['Entire place', 'Entire place'],
+                                 ['Private room', 'Private room'],
+                                 ['Shared place', 'Shared place']
                              ],
                              prompt: 'Select...',
                              class: 'form-control' %>
@@ -58,7 +58,7 @@
           <div class='row'>
             <div class='col-md-4 select'>
               <div class='form-group'>
-                <label>Bedroom(s)</label>
+                <label>Number of board(s)</label>
                 <%= f.select :boards_number,
                              [
                                  ['1 board', 1],
@@ -74,7 +74,7 @@
 
             <div class='col-md-4 select'>
               <div class='form-group'>
-                <label>Bathroom(s)</label>
+                <label>Number of meeting room(s)</label>
                 <%= f.select :meeting_room,
                              [
                                  ['1 meeting room', 1],
@@ -90,16 +90,16 @@
 
           <div class='row'>
             <div class='form-group'>
-              <label>Give a name to your place</label>
+              <label>Give a name to your co-working</label>
               <%= f.text_field :listing_name,
-                               placeholder: 'ex: The glorious villa',
+                               placeholder: 'ex: The best place for concentration',
                                class: 'form-control' %>
             </div>
           </div>
 
           <div class='row'>
             <div class='form-group'>
-              <label>Résumé</label>
+              <label>Summary</label>
               <%= f.text_area :summary,
                               rows: 4,
                               placeholder: 'Describe what makes your place special to visitors. ',
@@ -140,11 +140,11 @@
               </div>
 
               <div class='form-group'>
-                <%= f.check_box :is_locker %> Closet
+                <%= f.check_box :is_locker %> Locker
               </div>
 
               <div class='form-group'>
-                <%= f.check_box :is_pet_friendly %> Shampoo
+                <%= f.check_box :is_pet_friendly %> Pet friendly
               </div>
             </div>
 
@@ -154,7 +154,7 @@
               </div>
 
               <div class='form-group'>
-                <%= f.check_box :is_coffee %> Breakfast, Cofee, Tea
+                <%= f.check_box :is_coffee %> Coffee dispenser
               </div>
 
               <div class='form-group'>
@@ -169,10 +169,10 @@
           <div class='row'>
             <div class='col-md-4'>
               <div class='form-group'>
-                <label>Price per night</label>
+                <label>Price per day</label>
                 <div class='input-group'>
                   <%= f.text_field :price,
-                                   placeholder: 'ex: 45€',
+                                   placeholder: 'ex: 25€',
                                    class: 'form-control' %>
                   <div class='input-group-addon'>€</div>
                 </div>
@@ -182,12 +182,12 @@
 
           <div class='row'>
             <div class='form-group'>
-              <%= f.check_box :active %> Active ad
+              <%= f.check_box :active %> This place is active
             </div>
           </div>
 
           <div class='actions text-center'>
-            <%= f.submit 'Validate my ad', class: 'btn btn-primary' %>
+            <%= f.submit 'Publish co-working', class: 'btn btn-primary' %>
           </div>
       <% end %>
       <%= nice_display_edit_options %>

@@ -40,8 +40,8 @@ class ReservationsController < ApplicationController
     render json: output
   end
 
-  def trips
-    @trips = current_user.reservations
+  def pasts
+    @pasts = current_user.reservations
   end
 
   def bookings

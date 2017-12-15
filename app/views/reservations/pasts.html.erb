@@ -3,9 +3,9 @@
 </div>
 <div class='col-md-9'>
   <div class='panel panel-default'>
-    <div class='panel-heading'>My trips</div>
+    <div class='panel-heading'>My past co-working</div>
     <div class='panel-body'>
-      <% @trips.order('id DESC').each do |trip| %>
+      <% @pasts.order('id DESC').each do |trip| %>
           <div class='row'>
             <div class='col-md-2'>
               From <%= trip.start_date.strftime('%d.%m.%y') %> to <%= trip.end_date.strftime('%d.%m.%y') %>
