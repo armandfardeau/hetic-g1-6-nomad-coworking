@@ -4,8 +4,8 @@ class Office < ApplicationRecord
   has_many :reservations, dependent: :delete_all
   has_many :photos, dependent: :destroy
   has_many :reviews, dependent: :delete_all
-  validates :home_type, presence: true
-  validates :room_type, presence: true
+  validates :office_type, presence: true
+  validates :privacy_type, presence: true
   validates :accommodate, presence: true
   validates :bed_room, presence: true
   validates :bath_room, presence: true

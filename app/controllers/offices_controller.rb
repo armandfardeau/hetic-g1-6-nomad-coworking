@@ -60,7 +60,7 @@ class OfficesController < ApplicationController
 
   def office_params
     params.require(:office).permit(
-        :home_type,
+        :office_type,
         :office_type,
         :accommodate,
         :bed_office,

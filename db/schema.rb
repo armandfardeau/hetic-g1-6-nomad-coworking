@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20171214210200) do
   end
 
   create_table "offices", force: :cascade do |t|
-    t.string "home_type"
-    t.string "room_type"
+    t.string "office_type"
+    t.string "privacy_type"
     t.integer "accommodate"
     t.integer "bed_room"
     t.integer "bath_room"

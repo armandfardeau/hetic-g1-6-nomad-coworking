@@ -1,8 +1,8 @@
 class CreateOffices < ActiveRecord::Migration[5.1]
   def change
     create_table :offices do |t|
-      t.string :home_type
-      t.string :room_type
+      t.string :office_type
+      t.string :privacy_type
       t.integer :accommodate
       t.integer :bed_room
       t.integer :bath_room

@@ -6,8 +6,8 @@ user_zero = User.create! fullname: 'Armand Fardeau',
                          password: 'adminadmin',
                          password_confirmation: 'adminadmin'
 
-office_zero = Office.create! home_type: 'Breakfast',
-                           room_type: 'apartment',
+office_zero = Office.create! office_type: 'Breakfast',
+                           privacy_type: 'apartment',
                            accommodate: 4,
                            bed_room: 1,
                            bath_room: 1,
@@ -34,8 +34,8 @@ user_one = User.create! fullname: 'Paul Petit',
                         password: 'adminadmin',
                         password_confirmation: 'adminadmin'
 
-office_zero = Office.create! home_type: 'Breakfast',
-                           room_type: 'apartment',
+office_zero = Office.create! office_type: 'Breakfast',
+                           privacy_type: 'apartment',
                            accommodate: 4,
                            bed_room: 1,
                            bath_room: 1,

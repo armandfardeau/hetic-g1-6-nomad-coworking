@@ -9,14 +9,14 @@
           <div class='row'>
             <div class='col-md-4 select'>
               <div class='form-group'>
-                <label>Apartments type</label>
-                <%= f.select :home_type,
+                <label>Office type</label>
+                <%= f.select :office_type,
                              [
                                  %w[House House],
                                  %w[Flat Flat],
                                  %w[Bed & Breakfast Bed & Breakfast]
                              ],
-                             id: 'home_type',
+                             id: 'office_type',
                              prompt: 'Select...',
                              class: 'form-control' %>
               </div>
@@ -25,7 +25,7 @@
             <div class='col-md-4 select'>
               <div class='form-group'>
                 <label>Apartment type</label>
-                <%= f.select :room_type,
+                <%= f.select :privacy_type,
                              [
                                  %w[Entire accommodation Entire accommodation],
                                  %w[Private room Private room],
