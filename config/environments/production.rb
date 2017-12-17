@@ -1,7 +1,13 @@
 Rails.application.configure do
   Paperclip::Attachment.default_options.merge!(
       storage: :cloudinary,
-      path: ':id/:style/:filename'
+      path: ':id/:style/:filename',
+      cloudinary_url_options: {
+          default: {
+              secure: true
+          }
+      },
+      moderation: 'aws_rek'
   )
   ActionMailer::Base.smtp_settings = {
       address: 'smtp.sendgrid.net',
