@@ -14,6 +14,7 @@ module OfficesHelper
   end
 
   def nice_display_comments_form(booked, has_review)
+    return unless user_signed_in?
     return unless booked.blank? && !has_review
     render 'reviews/form'
   end
