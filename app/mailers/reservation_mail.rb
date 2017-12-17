@@ -1,18 +1,18 @@
 class ReservationMailer < ApplicationMailer
-  def new_reservation_owner(room, reservation)
-    @user = User.find(room.user_id)
+  def new_reservation_owner(office, reservation)
+    @user = User.find(office.user_id)
     @reservation = reservation
-    @room = room
+    @office = office
     mail(
         to: @user.email,
         subject: 'New reservation !'
     )
   end
 
-  def new_reservation_visitor(room, reservation)
-    @user = User.find(room.user_id)
+  def new_reservation_visitor(office, reservation)
+    @user = User.find(office.user_id)
     @reservation = reservation
-    @room = room
+    @office = office
     mail(
         to: @user.email,
         subject: 'New reservation !'

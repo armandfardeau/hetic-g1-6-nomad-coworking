@@ -3,11 +3,11 @@
 one:
   comment: MyText
   star: 1
-  room: one
+  office: one
   user: one
 
 two:
   comment: MyText
   star: 1
-  room: two
+  office: two
   user: two

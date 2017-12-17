@@ -11,13 +11,13 @@
               From <%= trip.start_date.strftime('%d.%m.%y') %> to <%= trip.end_date.strftime('%d.%m.%y') %>
             </div>
             <div class='col-md-6'>
-              <%= link_to office_path(trip.room) do %>
-                  <%= image_tag first_room_photos(trip.room, :thumb) %>
+              <%= link_to office_path(trip.office) do %>
+                  <%= image_tag first_office_photos(trip.office, :thumb) %>
               <% end %>
             </div>
             <div class='col-md-2'>
-              <%= link_to user_path(trip.room.user) do %>
-                  <%= image_tag avatar_url(trip.room.user), class: 'img-circle avatar-medium' %>
+              <%= link_to user_path(trip.office.user) do %>
+                  <%= image_tag avatar_url(trip.office.user), class: 'img-circle avatar-medium' %>
               <% end %>
             </div>
             <div class='col-md-2 right'>

@@ -1,28 +1,28 @@
-<div class="col-md-3">
+<div class='col-md-3'>
   <%= render partial: 'layouts/sub-nav' %>
 </div>
-<div class="col-md-9">
-  <div class="panel panel-default">
-    <div class="panel-heading"> My bookings</div>
-    <div class="panel-body">
-      <% @offices.each do |room| %>
-          <% room.reservations.order("id DESC").each do |reservation| %>
-              <div class="row">
-                <div class="col-md-2">
+<div class='col-md-9'>
+  <div class='panel panel-default'>
+    <div class='panel-heading'> My bookings</div>
+    <div class='panel-body'>
+      <% @offices.each do |office| %>
+          <% office.reservations.order('id DESC').each do |reservation| %>
+              <div class='row'>
+                <div class='col-md-2'>
                   Du <%= reservation.start_date.strftime('%d.%m.%y') %>
                   au <%= reservation.end_date.strftime('%d.%m.%y') %>
                 </div>
-                <div class="col-md-6">
-                  <%= link_to office_path(reservation.room) do %>
-                      <%= image_tag first_room_photos(reservation.room, :thumb) %>
+                <div class='col-md-6'>
+                  <%= link_to office_path(reservation.office) do %>
+                      <%= image_tag first_office_photos(reservation.office, :thumb) %>
                   <% end %>
                 </div>
-                <div class="col-md-2">
+                <div class='col-md-2'>
                   <%= link_to user_path(reservation.user) do %>
-                      <%= image_tag avatar_url(reservation.user), class: "img-circle avatar-medium" %>
+                      <%= image_tag avatar_url(reservation.user), class: 'img-circle avatar-medium' %>
                   <% end %>
                 </div>
-                <div class="col-md-2 right">
+                <div class='col-md-2 right'>
                   <h4><%= reservation.total %> €</h4>
                 </div>
               </div>

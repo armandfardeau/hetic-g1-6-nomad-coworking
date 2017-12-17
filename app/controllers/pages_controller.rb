@@ -32,6 +32,6 @@ def search_availabilities(start_date, end_date)
   end_date = Date.parse(end_date)
   @offices.each do |office|
     not_available = office.reservations.available(start_date, end_date)
-    @arr_offices.delete(room) unless not_available.empty?
+    @arr_offices.delete(office) unless not_available.empty?
   end
 end
