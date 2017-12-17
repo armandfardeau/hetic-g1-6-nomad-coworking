@@ -16,7 +16,7 @@
             <% if office.photos %>
                 <% office.photos.each do |photo| %>
                     <div class="item <%= 'active' if photo.id == office.photos[0].id %>">
-                      <%= image_tag photo.image.url(size) %>
+                      <%= image_tag photo.image.url(size), class: 'rounded-card' %>
                     </div>
                 <% end %>
             <% end %>
