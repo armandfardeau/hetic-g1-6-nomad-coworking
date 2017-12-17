@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Nomad coworking
 
-Things you may want to cover:
+Nomad coworking is a web app which helps you to find the nearest co-working place.
 
-* Ruby version
+Initially, the project was supposed to be Slashershare, a web app to share employees between enterprise.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You can find slashershare following this [link](https://github.com/armandfardeau/slashershare)
